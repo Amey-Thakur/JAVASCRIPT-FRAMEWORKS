@@ -14,7 +14,7 @@
  
  - [x] [Solid App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Solid%20App)
  
- - [ ] [Stencil App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Stencil%20App)
+ - [x] [Stencil App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Stencil%20App)
  
  - [ ] [Svelte App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Svelte%20App)
  
