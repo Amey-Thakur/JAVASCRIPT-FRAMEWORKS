@@ -12,7 +12,7 @@
  
  - [x] [React App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/React%20App)
  
- - [ ] [Solid App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Solid%20App)
+ - [x] [Solid App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Solid%20App)
  
  - [ ] [Stencil App](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS/tree/main/Stencil%20App)
  
