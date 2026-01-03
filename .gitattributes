@@ -1,0 +1,35 @@
+# Standardized Git Attributes for Scholarly Archiving
+
+# Handle line endings automatically for files detected as text
+# and perform LF normalization on checkin.
+* text=auto eol=lf
+
+# Explicitly mark source files as text
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.vue text
+*.svelte text
+*.html text
+*.css text
+*.scss text
+*.sass text
+*.less text
+*.json text
+*.md text
+*.svg text
+
+# Mark binary files
+*.jpg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.eot binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+# Academic/Scholarly classification
+*.md linguist-documentation
