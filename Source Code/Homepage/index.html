@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Frameworks Todo Apps | Amey & Mega</title>
+    <link rel="icon" type="image/png" href="_portal/favicon.png">
+    <link rel="stylesheet" href="_portal/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Top Controls -->
+    <div class="top-controls">
+        <button class="icon-btn theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <header class="hero">
+            <div class="hero-authors">Amey Thakur & Mega Satish</div>
+            <h1>JAVASCRIPT FRAMEWORKS<br>TODO APPS</h1>
+            <p class="subtitle">A comprehensive collection of Todo applications built with the most popular JavaScript
+                frameworks. Compare syntax, performance, and structure.</p>
+
+            <button class="share-hero-btn" onclick="shareRepo()">
+                <i class="fas fa-share-alt"></i> Share Repository
+            </button>
+        </header>
+
+        <div class="grid">
+            <!-- Alpine -->
+            <a href="../Alpine Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/alpine.png" alt="Alpine.js Logo">
+                </div>
+                <h2>Alpine.js</h2>
+                <p>A rugged, minimal framework for composing behavior directly in your markup.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Angular -->
+            <a href="../Angular Todo App/dist/angular-todo-app/browser/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/angular.png" alt="Angular Logo">
+                </div>
+                <h2>Angular</h2>
+                <p>A platform for building mobile and desktop web applications.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Lit -->
+            <a href="../Lit Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/lit.png" alt="Lit Logo">
+                </div>
+                <h2>Lit</h2>
+                <p>Simple. Fast. Web Components.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Mithril -->
+            <a href="../Mithril Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/mithril.svg" alt="Mithril Logo">
+                </div>
+                <h2>Mithril</h2>
+                <p>A modern client-side JavaScript framework for building Single Page Applications.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- React -->
+            <a href="../React Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/react.svg" alt="React Logo">
+                </div>
+                <h2>React</h2>
+                <p>A JavaScript library for building user interfaces.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Solid -->
+            <a href="../Solid Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/solid.svg" alt="Solid Logo">
+                </div>
+                <h2>Solid</h2>
+                <p>A declarative, efficient, and flexible JavaScript library for building user interfaces.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Stencil -->
+            <a href="../Stencil Todo App/www/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/stencil.png" alt="Stencil Logo">
+                </div>
+                <h2>Stencil</h2>
+                <p>A compiler that generates small, blazing fast Web Components.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Svelte -->
+            <a href="../Svelte Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/svelte.png" alt="Svelte Logo">
+                </div>
+                <h2>Svelte</h2>
+                <p>Cybernetically enhanced web apps.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Vanilla -->
+            <a href="../Vanilla Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/vanilla.png" alt="Vanilla JS Logo">
+                </div>
+                <h2>Vanilla JS</h2>
+                <p>Using plain JavaScript without any additional frameworks or libraries.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+
+            <!-- Vue -->
+            <a href="../Vue Todo App/dist/" class="card">
+                <div class="card-icon">
+                    <img src="_portal/logos/vue.png" alt="Vue Logo">
+                </div>
+                <h2>Vue</h2>
+                <p>The Progressive JavaScript Framework.</p>
+                <span class="status-badge">Live Demo</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS">GitHub
+                Repo</a></p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Main Application Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Logic
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+
+            // Apply saved theme
+            document.body.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                document.body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                } else {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            }
+
+            // Back to Top Logic
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Share Logic
+        async function shareRepo() {
+            const shareData = {
+                title: 'JavaScript Frameworks Todo Apps',
+                text: 'Check out this collection of Todo Apps built with 10 different JS Frameworks!',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    await navigator.clipboard.writeText(window.location.href);
+                    alert('Link copied to clipboard!');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        }
+    </script>
+</body>
+
+</html>

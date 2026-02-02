@@ -35,10 +35,13 @@ jobs:
       # Copy Portal Assets
       - name: Setup Portal
         run: |
-          cp "Source Code/index.html" _site/
-          cp "Source Code/404.html" _site/
-          cp "Source Code/.nojekyll" _site/
-          cp -r "Source Code/_portal" _site/
+          cp "Source Code/Homepage/index.html" _site/
+          cp "Source Code/Homepage/404.html" _site/
+          cp "Source Code/Homepage/.nojekyll" _site/
+          cp -r "Source Code/Homepage/_portal" _site/
+          
+          # Fix relative links for deployment (../App -> ./App)
+          sed -i 's|href="\.\./|href="|g' _site/index.html
 
       # Build Alpine
       - name: Build Alpine

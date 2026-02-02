@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | JS Frameworks</title>
+    <link rel="icon" type="image/png" href="_portal/favicon.png">
+    <!-- Note: Absolute path used for 404 to ensure it loads from subpaths if needed, though GitHub Pages 404 is at root -->
+    <link rel="stylesheet" href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/_portal/style.css">
+
+    <!-- Fallback for local testing or if repo name changes, use relative -->
+    <script>
+        // Simple fallback to handle local relative paths vs GitHub Pages absolute paths for CSS
+        if (document.styleSheets.length === 0 || document.styleSheets[0].cssRules.length === 0) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '_portal/style.css';
+            document.head.appendChild(link);
+
+            var favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) favicon.href = '_portal/favicon.ico';
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Controls -->
+    <div class="top-controls">
+        <button class="icon-btn theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! The framework you're looking for hasn't been implemented yet.</p>
+        <a href="index.html" class="home-btn">Return to JS Frameworks</a>
+
+        <!-- Local fallback for home button -->
+        <script>
+            const homeBtn = document.querySelector('.home-btn');
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                homeBtn.href = 'index.html';
+            }
+        </script>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS">GitHub
+                Repo</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Logic
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+
+            // Apply saved theme
+            document.body.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                document.body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                } else {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            }
+
+            // Back to top button logic
+            const backToTopButton = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 404 Fallback
+            const path = window.location.pathname;
+            const repoName = '/JAVASCRIPT-FRAMEWORKS-TODO-APPS/';
+
+            if (path.startsWith(repoName) && path !== repoName && path !== repoName + 'index.html') {
+                // This page is likely being viewed as a 404
+                console.log('404 Page Loaded for path:', path);
+            }
+        });
+    </script>
+</body>
+
+</html>
