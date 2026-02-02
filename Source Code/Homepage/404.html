@@ -54,6 +54,34 @@
         }
 
         /* ... keyframes ... */
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+
+            20% {
+                transform: translate(-3px, 3px);
+            }
+
+            40% {
+                transform: translate(-3px, -3px);
+                filter: hue-rotate(45deg);
+            }
+
+            60% {
+                transform: translate(3px, 3px);
+            }
+
+            80% {
+                transform: translate(3px, -3px);
+                filter: hue-rotate(-45deg);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
 
         .message {
             font-size: 1.5rem;
@@ -62,7 +90,8 @@
             /* Increased width to prevent wrapping */
             width: 90%;
             /* Responsive fallback */
-            margin: 1rem 0 3rem;
+            margin: 2rem 0 4rem;
+            /* Increased bottom margin for spaciousness */
             font-weight: 300;
             line-height: 1.6;
         }
@@ -94,12 +123,15 @@
         footer {
             margin-top: auto;
             /* Push to bottom */
+            padding: 2rem;
             color: var(--text-secondary);
             font-size: 0.9rem;
             width: 100%;
-            padding-bottom: 2rem;
-            position: relative;
-            /* Remove absolute positioning */
+            text-align: center;
+            background: var(--card-bg);
+            /* Match homepage footer bg */
+            border-top: 1px solid var(--border-color);
+            /* Match homepage */
         }
 
         .footer-author {
@@ -109,8 +141,39 @@
             transition: color 0.3s;
         }
 
-        .footer-author:hover {
+        .footer-repo {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-author:hover,
+        .footer-repo:hover {
             color: var(--accent-blue);
+        }
+
+        /* 404 Responsive Fixes */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+                /* Reduce size on mobile */
+            }
+
+            .message {
+                font-size: 1.1rem;
+                /* Smaller text */
+                margin: 1.5rem 0 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem !important;
+                /* Force smaller sub-heading */
+            }
+
+            .btn-home {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -136,7 +199,7 @@
         <p>Return to the main dashboard to continue exploring.</p>
     </div>
 
-    <a href="index.html" class="btn-home">Return to Ecosystem</a>
+    <a href="index.html" class="btn-home">Return to JS Frameworks</a>
 
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top" title="Go to top">
@@ -144,11 +207,11 @@
     </button>
 
     <footer>
-        <p>Created by <a href="https://github.com/Amey-Thakur"
-                style="text-decoration:none; color:var(--text-primary);">Amey Thakur</a> &
-            <a href="https://github.com/msatmod" style="text-decoration:none; color:var(--text-primary);">Mega
-                Satish</a>
+        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank" class="footer-author">Amey Thakur</a> &
+            <a href="https://github.com/msatmod" target="_blank" class="footer-author">Mega Satish</a>
         </p>
+        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS"
+                target="_blank" class="footer-repo">GitHub Repo</a></p>
     </footer>
 
     <script>
