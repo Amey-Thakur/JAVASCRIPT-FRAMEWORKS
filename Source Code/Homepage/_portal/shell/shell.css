@@ -1,0 +1,171 @@
+/* Framework Gallery Overlay Styles */
+:root {
+    --shell-bg: rgba(15, 23, 42, 0.7);
+    --shell-accent: #3b82f6;
+    --shell-text: #f8fafc;
+    --shell-glass: rgba(255, 255, 255, 0.1);
+    --shell-border: rgba(255, 255, 255, 0.1);
+}
+
+.gallery-shell-overlay {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--shell-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--shell-border);
+    border-radius: 50px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 0 15px -5px var(--shell-accent);
+    z-index: 9999;
+    user-select: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.gallery-shell-overlay:hover {
+    bottom: 28px;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), 0 0 20px -2px var(--shell-accent);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shell-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--shell-text);
+    background: var(--shell-glass);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.shell-btn:hover {
+    background: var(--shell-accent);
+    transform: scale(1.1);
+    color: white;
+}
+
+.shell-btn:active {
+    transform: scale(0.95);
+}
+
+.shell-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--shell-border);
+    margin: 0 4px;
+}
+
+.shell-info-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 500px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--shell-border);
+    border-radius: 20px;
+    padding: 32px;
+    color: var(--shell-text);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.shell-info-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.shell-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.shell-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.shell-info-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.shell-info-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.shell-info-title {
+    font-family: 'Play', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.shell-info-body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+.shell-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.2s;
+}
+
+.shell-modal-close:hover {
+    color: white;
+}
+
+@media (max-width: 640px) {
+    .gallery-shell-overlay {
+        bottom: 16px;
+        padding: 6px 12px;
+    }
+}
