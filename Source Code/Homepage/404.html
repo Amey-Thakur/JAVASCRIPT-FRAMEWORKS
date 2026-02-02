@@ -25,14 +25,20 @@
         body {
             background-color: var(--bg-color);
             background-image: radial-gradient(circle at 50% -20%, #161b22 0%, #0d1117 100%);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
+            /* Allow vertical scroll, prevent horizontal */
             margin: 0;
+            padding-top: 80px;
+            /* Ensure headroom below top controls */
+            padding-bottom: 2rem;
+            /* Space for footer */
+            box-sizing: border-box;
         }
 
         .error-code {
