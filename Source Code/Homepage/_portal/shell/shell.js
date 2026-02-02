@@ -30,6 +30,10 @@
         if (document.querySelector('.vanilla-todo-app')) return apps.find(a => a.id === 'vanilla');
         if (document.querySelector('.vue-todo-app')) return apps.find(a => a.id === 'vue');
 
+        // Layer 1.5: H1 Content Signature (Fallback for React Premium)
+        const h1 = document.querySelector('h1');
+        if (h1 && h1.textContent.includes('React To-Do App')) return apps.find(a => a.id === 'react');
+
         // Layer 2: Path Match (Production & Repo structure)
         let found = apps.find(app => path.includes(encodeURIComponent(app.path)) || path.includes(app.path));
         if (found) return found;
@@ -75,7 +79,7 @@
         'angular': 'angular-todos',
         'lit': 'lit-todos',
         'mithril': 'mithril-todos',
-        'react': 'todos',
+        'react': 'react-todos',
         'solid': 'solid-todos',
         'stencil': 'stencil-todos',
         'svelte': 'svelte-todos',
@@ -98,11 +102,11 @@
 
     function normalizeFromMaster(appId, masterData) {
         if (!Array.isArray(masterData)) return [];
-        if (appId === 'react') {
-            // React expects a simple array of strings
+        if (appId === 'react' && masterData.some(t => typeof t === 'string')) {
+            // Support legacy string format if detected in master
             return masterData.map(t => typeof t === 'object' ? (t.text || String(t)) : String(t));
         }
-        // All other apps expect { id, text, completed }
+        // Modern React (Premium) and all other apps expect { id, text, completed }
         return masterData;
     }
 
