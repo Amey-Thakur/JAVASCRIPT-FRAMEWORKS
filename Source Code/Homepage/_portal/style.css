@@ -10,6 +10,7 @@
     --accent-hover: #2563eb;
     --border-color: rgba(0, 0, 0, 0.1);
     --hero-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --card-gradient: linear-gradient(-45deg, rgba(255, 255, 255, 0.9), rgba(59, 130, 246, 0.1), rgba(255, 255, 255, 0.9), rgba(139, 92, 246, 0.1));
     --font-heading: 'Play', sans-serif;
     --font-body: 'Play', sans-serif;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -58,19 +59,27 @@
 
 .loader-progress-container {
     position: absolute;
-    bottom: -40px;
-    width: 200px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    bottom: -60px;
+    /* Moved further down */
+    width: 300px;
+    /* Wider */
+    height: 8px;
+    /* Thicker */
+    background: rgba(255, 255, 255, 0.15);
+    /* More visible track */
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Shadow for depth */
 }
 
 #splash-progress-bar {
     height: 100%;
-    background: var(--gradient);
+    background: linear-gradient(90deg, #58a6ff, #bc8cff);
+    /* Explicit gradient */
     width: 0%;
-    box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.6);
     animation: fillProgress 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -142,6 +151,7 @@
     --accent-hover: #60a5fa;
     --border-color: rgba(255, 255, 255, 0.1);
     --hero-gradient: linear-gradient(135deg, #60a5fa, #c084fc);
+    --card-gradient: linear-gradient(-45deg, rgba(22, 27, 34, 0.8), rgba(88, 166, 255, 0.05), rgba(22, 27, 34, 0.8), rgba(188, 140, 255, 0.05));
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
@@ -361,7 +371,7 @@ p.subtitle {
 
 /* Card Styles with Premium Animation */
 .card {
-    background: linear-gradient(-45deg, rgba(22, 27, 34, 0.8), rgba(88, 166, 255, 0.05), rgba(22, 27, 34, 0.8), rgba(188, 140, 255, 0.05));
+    background: var(--card-gradient);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     border: 1px solid var(--border-color);
