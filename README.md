@@ -147,7 +147,7 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 
 ### 1. Prerequisites
 - **Node.js 20+**: Required for build and runtime execution. [Download Node.js](https://nodejs.org/)
-- **npm**: Usually bundled with Node.js.
+- **npm 10+**: Core package management system.
 - **Git**: For version control and cloning. [Download Git](https://git-scm.com/downloads)
 
 > [!WARNING]
@@ -155,7 +155,7 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 >
 > The applications utilize a unified LocalStorage bridge for cross-framework persistence. If running in "Incognito" or "Private" mode, the "Magic Sync" synchronization may be restricted, preventing the master task list from persisting across framework transitions.
 
-### 2. Installation & Setup
+### 2. Installation & Workflow
 
 #### Step 1: Clone the Repository
 Open your terminal and clone the repository:
@@ -164,20 +164,36 @@ git clone https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS.git
 cd JAVASCRIPT-FRAMEWORKS-TODO-APPS
 ```
 
-#### Step 2: Build All Applications
-The project uses an automated deployment pipeline, but you can build individual apps:
-```bash
-cd "Source Code/[Framework App Name]"
-npm install
-npm run build
-```
+#### Step 2: Framework Selection & Execution
+Select any of the 10 framework implementations from the **Source Code** directory. Each application follows a standardized technical workflow:
 
-### 3. Local Development
-To view the centralized portal locally:
-```bash
-cd "Source Code/Homepage"
-# Open index.html in a web server (e.g., Live Server)
-```
+1.  **Navigate** to the specific app directory:
+    ```bash
+    cd "Source Code/[App Name]"
+    ```
+2.  **Synchronize** the local environment:
+    ```bash
+    npm install
+    ```
+3.  **Launch** the reactive development server:
+    ```bash
+    npm run dev
+    ```
+
+### 3. Framework-Specific Build Commands
+
+| Implementation | Build Command | Output Directory |
+|----------------|---------------|------------------|
+| **Alpine** | Native Execution | Root Level |
+| **Angular** | `npm run build` | `dist/angular-todo/` |
+| **Lit** | `npm run build` | `dist/` |
+| **Mithril** | Native Execution | Root Level |
+| **React** | `npm run build` | `dist/` |
+| **Solid** | `npm run build` | `dist/` |
+| **Stencil** | `npm run build` | `www/` |
+| **Svelte** | `npm run build` | `dist/` |
+| **Vanilla** | Native Execution | Root Level |
+| **Vue** | `npm run build` | `dist/` |
 
 ---
 
