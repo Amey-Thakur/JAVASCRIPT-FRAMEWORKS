@@ -147,29 +147,83 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 
 The following implementation gallery showcases the visual consistency and high-fidelity UI maintained across all 10 JavaScript frameworks. Every application utilizes the **"Magic Sync" Virtual Storage Bridge** to ensure real-time data persistence during framework transitions.
 
-````carousel
-![Homepage Portal Hub Implementation](screenshots/homepage.png)
-<!-- slide -->
-![Alpine Todo App Implementation](screenshots/alpine.png)
-<!-- slide -->
-![Angular Todo App Implementation](screenshots/angular.png)
-<!-- slide -->
-![Lit Todo App Implementation](screenshots/lit.png)
-<!-- slide -->
-![Mithril Todo App Implementation](screenshots/mithril.png)
-<!-- slide -->
-![React Todo App Implementation](screenshots/react.png)
-<!-- slide -->
-![Solid Todo App Implementation](screenshots/solid.png)
-<!-- slide -->
-![Stencil Todo App Implementation](screenshots/stencil.png)
-<!-- slide -->
-![Svelte Todo App Implementation](screenshots/svelte.png)
-<!-- slide -->
-![Vanilla JS Todo App Implementation](screenshots/vanilla.png)
-<!-- slide -->
-![Vue Todo App Implementation](screenshots/vue.png)
-````
+<div align="center">
+  <b>Central Portal Hub: Magic Sync Portal</b>
+  <br>
+  <i>Initial ecosystem entrance with optimized aesthetics and synchronized brand identity.</i>
+  <br><br>
+  <img src="screenshots/homepage.png" alt="Homepage Portal Hub" width="90%">
+  <br><br><br>
+
+  <b>React Implementation: Virtual DOM</b>
+  <br>
+  <i>High-performance task orchestration utilizing React 19 and modern state persistence.</i>
+  <br><br>
+  <img src="screenshots/react.png" alt="React Implementation" width="90%">
+  <br><br><br>
+
+  <b>Angular Implementation: Enterprise Tier</b>
+  <br>
+  <i>Robust, scalable task management engineered with Angular's comprehensive dependency injection.</i>
+  <br><br>
+  <img src="screenshots/angular.png" alt="Angular Implementation" width="90%">
+  <br><br><br>
+
+  <b>Vue Implementation: Reactive Proxy</b>
+  <br>
+  <i>Progressive interaction model featuring Vue's intuitive reactivity and template system.</i>
+  <br><br>
+  <img src="screenshots/vue.png" alt="Vue Implementation" width="90%">
+  <br><br><br>
+
+  <b>Svelte Implementation: Compiled Efficiency</b>
+  <br>
+  <i>Zero-overhead task tracking achieved through Svelte's compile-time transformation strategy.</i>
+  <br><br>
+  <img src="screenshots/svelte.png" alt="Svelte Implementation" width="90%">
+  <br><br><br>
+
+  <b>Solid Implementation: Fine-grained Reactivity</b>
+  <br>
+  <i>Ultra-performant state management leveraging Solid's direct signals and fine-grained DOM updates.</i>
+  <br><br>
+  <img src="screenshots/solid.png" alt="Solid Implementation" width="90%">
+  <br><br><br>
+
+  <b>Lit Implementation: Web Components</b>
+  <br>
+  <i>Lightweight, standard-compliant task components built with Lit's high-speed rendering engine.</i>
+  <br><br>
+  <img src="screenshots/lit.png" alt="Lit Implementation" width="90%">
+  <br><br><br>
+
+  <b>Mithril Implementation: Tiny VDOM</b>
+  <br>
+  <i>Elegant and efficient task orchestration within a sub-10kb Virtual DOM framework.</i>
+  <br><br>
+  <img src="screenshots/mithril.png" alt="Mithril Implementation" width="90%">
+  <br><br><br>
+
+  <b>Stencil Implementation: Web Component Compiler</b>
+  <br>
+  <i>Framework-agnostic task components generated via Stencil's optimized build-time tool.</i>
+  <br><br>
+  <img src="screenshots/stencil.png" alt="Stencil Implementation" width="90%">
+  <br><br><br>
+
+  <b>Alpine.js Implementation: Rugged Minimal</b>
+  <br>
+  <i>Declarative task behavior orchestrated directly within the markup for maximum simplicity.</i>
+  <br><br>
+  <img src="screenshots/alpine.png" alt="Alpine Implementation" width="90%">
+  <br><br><br>
+
+  <b>Vanilla JS Implementation: Native Performance</b>
+  <br>
+  <i>Direct DOM manipulation and core JavaScript patterns serving as the architectural benchmark.</i>
+  <br><br>
+  <img src="screenshots/vanilla.png" alt="Vanilla JS Implementation" width="90%">
+</div>
 
 ---
 
