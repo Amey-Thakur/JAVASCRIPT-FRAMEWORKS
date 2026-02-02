@@ -21,18 +21,39 @@
         <button class="icon-btn theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
             <i class="fas fa-moon"></i>
         </button>
+        <button class="icon-btn" onclick="shareRepo()" title="Share Repository" aria-label="Share Repository">
+            <i class="fas fa-share-alt"></i>
+        </button>
     </div>
 
     <div class="container">
         <header class="hero">
-            <div class="hero-authors">Amey Thakur & Mega Satish</div>
-            <h1>JAVASCRIPT FRAMEWORKS<br>TODO APPS</h1>
-            <p class="subtitle">A comprehensive collection of Todo applications built with the most popular JavaScript
-                frameworks. Compare syntax, performance, and structure.</p>
+            <h1 class="premium-title">JAVASCRIPT FRAMEWORKS <br><span class="gradient-text">TODO APPS</span></h1>
+            <p class="subtitle">A comprehensive collection of Todo applications built with 10 different JavaScript
+                frameworks.
+                Compare syntax, performance, and structure.</p>
 
-            <button class="share-hero-btn" onclick="shareRepo()">
-                <i class="fas fa-share-alt"></i> Share Repository
-            </button>
+            <div class="hero-identity-grid">
+                <!-- Amey Thakur -->
+                <a href="https://github.com/Amey-Thakur" target="_blank" class="author-pill">
+                    <img src="https://github.com/Amey-Thakur.png" alt="Amey Thakur">
+                    <span>Amey Thakur</span>
+                </a>
+
+                <!-- Mega Satish -->
+                <a href="https://github.com/msatmod" target="_blank" class="author-pill">
+                    <img src="assets/Mega.png" alt="Mega Satish">
+                    <span>Mega Satish</span>
+                </a>
+            </div>
+
+            <div class="repo-btn-container">
+                <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS" target="_blank"
+                    class="repo-central-btn">
+                    <i class="fas fa-code-branch repo-icon-fork"></i>
+                    <span>View GitHub Repository</span>
+                </a>
+            </div>
         </header>
 
         <div class="grid">
@@ -139,8 +160,10 @@
     </div>
 
     <footer>
-        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS">GitHub
-                Repo</a></p>
+        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank">Amey Thakur</a> & <a
+                href="https://github.com/Mega-Satish" target="_blank">Mega Satish</a> • &copy; 2022</p>
+        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS"
+                target="_blank">GitHub Repo</a></p>
     </footer>
 
     <!-- Back to Top Button -->
@@ -149,7 +172,7 @@
     </button>
 
     <script>
-        // Main Application Logic
+        // Main Application
         document.addEventListener('DOMContentLoaded', () => {
             // Theme Logic
             const themeToggle = document.querySelector('.theme-toggle');
@@ -179,8 +202,9 @@
                 }
             }
 
-            // Back to Top Logic
+            // Back to top button logic
             const backToTopButton = document.getElementById('backToTop');
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
                     backToTopButton.classList.add('visible');
@@ -190,29 +214,68 @@
             });
 
             backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
+
+            // Share functionality
+            window.shareRepo = async () => {
+                const shareData = {
+                    title: 'JavaScript Frameworks Todo Apps',
+                    text: 'Explore Todo Apps built with 10 different JavaScript frameworks!',
+                    url: 'https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS'
+                };
+                try {
+                    if (navigator.share) {
+                        await navigator.share(shareData);
+                    } else {
+                        await navigator.clipboard.writeText(shareData.url);
+                        alert('Link copied to clipboard!');
+                    }
+                } catch (err) {
+                    console.error('Error sharing:', err);
+                }
+            };
         });
 
-        // Share Logic
-        async function shareRepo() {
-            const shareData = {
-                title: 'JavaScript Frameworks Todo Apps',
-                text: 'Check out this collection of Todo Apps built with 10 different JS Frameworks!',
-                url: window.location.href
-            };
+        // Security and Easter Egg Logic
+        (function () {
+            // 1. Anti-Right-Click
+            document.addEventListener('contextmenu', e => e.preventDefault());
 
-            try {
-                if (navigator.share) {
-                    await navigator.share(shareData);
-                } else {
-                    await navigator.clipboard.writeText(window.location.href);
-                    alert('Link copied to clipboard!');
+            // 2. Shortcut Protection
+            document.addEventListener('keydown', e => {
+                if (e.keyCode === 123 || // F12
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+                    (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+                ) {
+                    e.preventDefault();
                 }
-            } catch (err) {
-                console.error('Error sharing:', err);
-            }
-        }
+            });
+
+            // 3. Console Message
+            console.log(
+                '%c Created by Amey Thakur & Mega Satish ',
+                'background: #324fff; color: #fff; font-size: 20px; font-weight: bold; border-radius: 5px; padding: 10px;'
+            );
+            console.log('%c GitHub Repo: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS ', 'color: #3b82f6; text-decoration: underline;');
+            console.log('%c Amey Thakur: https://github.com/Amey-Thakur ', 'color: #64748b;');
+            console.log('%c Mega Satish: https://github.com/Mega-Satish ', 'color: #64748b;');
+
+            // 4. Easter Egg (AMEYMEGA)
+            let sequence = '';
+            const secret = 'AMEYMEGA';
+            document.addEventListener('keydown', e => {
+                sequence += e.key.toUpperCase();
+                if (sequence.endsWith(secret)) {
+                    alert('🌟 Easter Egg Found! 🌟\n\nThis portal was meticulously crafted by Amey Thakur & Mega Satish.\n\nThank you for exploring our JS Framework Ecosystem!');
+                    sequence = '';
+                }
+                if (sequence.length > 20) sequence = sequence.substring(sequence.length - 20);
+            });
+        })();
     </script>
 </body>
 

@@ -5,27 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | JS Frameworks</title>
-    <link rel="icon" type="image/png" href="_portal/favicon.png">
-    <!-- Note: Absolute path used for 404 to ensure it loads from subpaths if needed, though GitHub Pages 404 is at root -->
+    <link rel="icon" type="image/x-icon" href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/_portal/favicon.ico">
     <link rel="stylesheet" href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/_portal/style.css">
-
-    <!-- Fallback for local testing or if repo name changes, use relative -->
-    <script>
-        // Simple fallback to handle local relative paths vs GitHub Pages absolute paths for CSS
-        if (document.styleSheets.length === 0 || document.styleSheets[0].cssRules.length === 0) {
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = '_portal/style.css';
-            document.head.appendChild(link);
-
-            var favicon = document.querySelector('link[rel="icon"]');
-            if (favicon) favicon.href = '_portal/favicon.ico';
-        }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -34,20 +16,15 @@
         <button class="icon-btn theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
             <i class="fas fa-moon"></i>
         </button>
+        <button class="icon-btn" onclick="shareRepo()" title="Share Repository" aria-label="Share Repository">
+            <i class="fas fa-share-alt"></i>
+        </button>
     </div>
 
     <div class="container error-container">
         <h1 class="error-code">404</h1>
         <p class="error-message">Oops! The framework you're looking for hasn't been implemented yet.</p>
-        <a href="index.html" class="home-btn">Return to JS Frameworks</a>
-
-        <!-- Local fallback for home button -->
-        <script>
-            const homeBtn = document.querySelector('.home-btn');
-            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                homeBtn.href = 'index.html';
-            }
-        </script>
+        <a href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/index.html" class="home-btn">Return to JS Frameworks</a>
     </div>
 
     <!-- Back to Top Button -->
@@ -56,8 +33,10 @@
     </button>
 
     <footer>
-        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS">GitHub
-                Repo</a></p>
+        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank">Amey Thakur</a> & <a
+                href="https://github.com/Mega-Satish" target="_blank">Mega Satish</a> • &copy; 2022</p>
+        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS"
+                target="_blank">GitHub Repo</a></p>
     </footer>
 
     <script>
@@ -116,7 +95,63 @@
                 // This page is likely being viewed as a 404
                 console.log('404 Page Loaded for path:', path);
             }
+
+            // Share Functionality (Global)
+            window.shareRepo = async () => {
+                const shareData = {
+                    title: 'JavaScript Frameworks Todo Apps',
+                    text: 'Explore Todo Apps built with 10 different JavaScript frameworks!',
+                    url: 'https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS'
+                };
+                try {
+                    if (navigator.share) {
+                        await navigator.share(shareData);
+                    } else {
+                        await navigator.clipboard.writeText(shareData.url);
+                        alert('Link copied to clipboard!');
+                    }
+                } catch (err) {
+                    console.error('Error sharing:', err);
+                }
+            };
         });
+
+        // Security and Easter Egg Logic
+        (function () {
+            // 1. Anti-Right-Click
+            document.addEventListener('contextmenu', e => e.preventDefault());
+
+            // 2. Shortcut Protection
+            document.addEventListener('keydown', e => {
+                if (e.keyCode === 123 || // F12
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+                    (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+                ) {
+                    e.preventDefault();
+                }
+            });
+
+            // 3. Console Message
+            console.log(
+                '%c Created by Amey Thakur & Mega Satish ',
+                'background: #324fff; color: #fff; font-size: 20px; font-weight: bold; border-radius: 5px; padding: 10px;'
+            );
+            console.log('%c GitHub Repo: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS ', 'color: #3b82f6; text-decoration: underline;');
+            console.log('%c Amey Thakur: https://github.com/Amey-Thakur ', 'color: #64748b;');
+            console.log('%c Mega Satish: https://github.com/Mega-Satish ', 'color: #64748b;');
+
+            // 4. Easter Egg (AMEYMEGA)
+            let sequence = '';
+            const secret = 'AMEYMEGA';
+            document.addEventListener('keydown', e => {
+                sequence += e.key.toUpperCase();
+                if (sequence.endsWith(secret)) {
+                    alert('🌟 Easter Egg Found! 🌟\n\nThis portal was meticulously crafted by Amey Thakur & Mega Satish.\n\nThank you for exploring our JS Framework Ecosystem!');
+                    sequence = '';
+                }
+                if (sequence.length > 20) sequence = sequence.substring(sequence.length - 20);
+            });
+        })();
     </script>
 </body>
 
