@@ -68,7 +68,7 @@ The ecosystem is governed by strict **computational design patterns** ensuring f
 
 | Feature | Description |
 |---------|-------------|
-| **10 Framework Benchmark** | Full implementations in **React**, **Angular**, **Vue**, **Svelte**, **Alpine**, **Solid**, **Lit**, **Mithril**, **Stencil**, and **Vanilla JS**. |
+| **10 Framework Benchmark** | Full implementations in [**React**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/), [**Angular**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/), [**Vue**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/), [**Svelte**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/), [**Alpine**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/), [**Solid**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/), [**Lit**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/), [**Mithril**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/), [**Stencil**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/), and [**Vanilla JS**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/). |
 | **Magic Sync Core** | Engineered **Virtual Storage Bridge** for real-time cross-framework data persistence. |
 | **Architectural Comparison** | Side-by-side study of **Virtual DOM**, **Fine-grained Reactivity**, and **Compile-time** strategies. |
 | **Central Portal Hub** | A modern **Homepage Overlay** that facilitates seamless navigation between all framework projects. |
@@ -81,7 +81,7 @@ The ecosystem is governed by strict **computational design patterns** ensuring f
 
 ### Tech Stack
 - **Languages**: JavaScript, TypeScript, HTML, CSS
-- **Frameworks**: 10 (React, Angular, Vue, Svelte, Solid, Lit, Mithril, Alpine, Stencil, Vanilla)
+- **Frameworks**: 10 ([React](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/), [Angular](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/), [Vue](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/), [Svelte](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/), [Solid](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/), [Lit](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/), [Mithril](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/), [Alpine](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/), [Stencil](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/), [Vanilla](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/))
 - **Persistence**: **Virtual Storage Bridge** (Custom Interceptor Architecture)
 - **Deployment**: GitHub Actions (Unified CI/CD Pipeline)
 - **Hosting**: GitHub Pages
