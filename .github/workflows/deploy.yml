@@ -53,7 +53,7 @@ jobs:
           sed -i 's|Mithril Todo App/dist/|Mithril Todo App/|g' _site/index.html
           sed -i 's|React Todo App/dist/|React Todo App/|g' _site/index.html
           sed -i 's|Solid Todo App/dist/|Solid Todo App/|g' _site/index.html
-          sed -i 's|Stencil Todo App/www/|Stencil-Todo-App/|g' _site/index.html
+          sed -i 's|Stencil Todo App/www/|Stencil%20Todo%20App/|g' _site/index.html
           sed -i 's|Svelte Todo App/dist/|Svelte Todo App/|g' _site/index.html
           sed -i 's|Vanilla Todo App/dist/|Vanilla Todo App/|g' _site/index.html
           sed -i 's|Vue Todo App/dist/|Vue Todo App/|g' _site/index.html
@@ -125,14 +125,14 @@ jobs:
           cd "Source Code/Stencil Todo App"
           npm install --legacy-peer-deps
           npm run build
-          mkdir -p "../../_site/Stencil-Todo-App"
+          mkdir -p "../../_site/Stencil Todo App"
           # Copy from the nested folder (now with fixed name)
-          cp -r "www/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil-Todo-App/"* "../../_site/Stencil-Todo-App/"
+          cp -r "www/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/"* "../../_site/Stencil Todo App/"
           
           # Fix absolute paths in Stencil's index.html
-          sed -i 's|src="/build/|src="build/|g' "../../_site/Stencil-Todo-App/index.html"
-          sed -i 's|href="/assets/|href="assets/|g' "../../_site/Stencil-Todo-App/index.html"
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Stencil-Todo-App/index.html"
+          sed -i 's|src="/build/|src="build/|g' "../../_site/Stencil Todo App/index.html"
+          sed -i 's|href="/assets/|href="assets/|g' "../../_site/Stencil Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Stencil Todo App/index.html"
 
       # Build Svelte
       - name: Build Svelte
