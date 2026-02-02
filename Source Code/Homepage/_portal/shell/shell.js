@@ -79,6 +79,15 @@
         }
     })();
 
+    // View Transitions Tagging
+    function applyTransitions() {
+        const h1 = document.querySelector('h1');
+        if (h1) h1.style.viewTransitionName = 'app-title';
+
+        const container = document.querySelector('.app-container') || document.querySelector('todo-app') || document.querySelector('app-root');
+        if (container) container.style.viewTransitionName = 'app-shell';
+    }
+
     // UI State & Variables
     document.documentElement.style.setProperty('--shell-accent', currentApp.color);
     const prevApp = apps[(currentIndex - 1 + apps.length) % apps.length];
@@ -88,6 +97,7 @@
         const inject = () => {
             if (document.getElementById('gallery-shell-root')) return;
             createUI();
+            applyTransitions();
         };
 
         if (document.readyState === 'complete') setTimeout(inject, 500);
