@@ -148,6 +148,8 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 The following implementation gallery showcases the visual consistency and high-fidelity UI maintained across all 10 JavaScript frameworks. Every application utilizes the **"Magic Sync" Virtual Storage Bridge** to ensure real-time data persistence during framework transitions.
 
 ````carousel
+![Homepage Portal Hub Implementation](screenshots/homepage.png)
+<!-- slide -->
 ![Alpine Todo App Implementation](screenshots/alpine.png)
 <!-- slide -->
 ![Angular Todo App Implementation](screenshots/angular.png)
