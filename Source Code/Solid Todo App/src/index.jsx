@@ -51,7 +51,7 @@ const App = () => {
 
     return (
         <>
-            <div class="app-container">
+            <div class="app-container solid-todo-app">
                 <h1>Solid To-Do App</h1>
 
                 <form class="input-group" onSubmit={addTodo}>

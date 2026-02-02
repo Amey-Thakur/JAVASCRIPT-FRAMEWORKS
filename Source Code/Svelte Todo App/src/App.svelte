@@ -105,7 +105,7 @@
   });
 </script>
 
-<div class="app-container">
+<div class="app-container svelte-todo-app">
   <h1>Svelte To-Do App</h1>
 
   <form class="input-group" onsubmit={addTodo}>

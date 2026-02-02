@@ -67,7 +67,7 @@ export class AppRoot {
 
         return (
             <Host>
-                <div class="app-container">
+                <div class="app-container stencil-todo-app">
                     <h1>Stencil To-Do App</h1>
 
                     <form class="input-group" onSubmit={this.addTodo}>

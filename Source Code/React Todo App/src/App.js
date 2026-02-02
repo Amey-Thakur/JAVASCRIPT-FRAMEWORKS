@@ -24,9 +24,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="react-todo-app">
       <ul>
-        {todos.map(todo => (<li key={todo}>{todo}</li>))}  
+        {todos.map(todo => (<li key={todo}>{todo}</li>))}
       </ul>
 
       <form onSubmit={addTodo}>

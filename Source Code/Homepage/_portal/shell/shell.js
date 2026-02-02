@@ -17,19 +17,24 @@
     function getApp() {
         const path = window.location.pathname;
         const title = document.title ? document.title.toLowerCase() : "";
-        const h1 = document.querySelector('h1') ? document.querySelector('h1').innerText.toLowerCase() : "";
 
-        // Layer 1: Path Match (Production & Repo structure)
+        // Layer 1: Permanent Signature (Absolute certainty - NO collisions)
+        if (document.querySelector('.alpine-todo-app')) return apps.find(a => a.id === 'alpine');
+        if (document.querySelector('app-root')) return apps.find(a => a.id === 'angular'); // Angular is unique enough
+        if (document.querySelector('.lit-todo-app')) return apps.find(a => a.id === 'lit');
+        if (document.querySelector('.mithril-todo-app')) return apps.find(a => a.id === 'mithril');
+        if (document.querySelector('.react-todo-app')) return apps.find(a => a.id === 'react');
+        if (document.querySelector('.solid-todo-app')) return apps.find(a => a.id === 'solid');
+        if (document.querySelector('.stencil-todo-app')) return apps.find(a => a.id === 'stencil');
+        if (document.querySelector('.svelte-todo-app')) return apps.find(a => a.id === 'svelte');
+        if (document.querySelector('.vanilla-todo-app')) return apps.find(a => a.id === 'vanilla');
+        if (document.querySelector('.vue-todo-app')) return apps.find(a => a.id === 'vue');
+
+        // Layer 2: Path Match (Production & Repo structure)
         let found = apps.find(app => path.includes(encodeURIComponent(app.path)) || path.includes(app.path));
         if (found) return found;
 
-        // Layer 2: H1 Text Match (Localhost Tie-breaker)
-        if (h1) {
-            found = apps.find(app => h1.includes(app.name.toLowerCase().split('.')[0]));
-            if (found) return found;
-        }
-
-        // Layer 3: Title Match (Localhost Fallback)
+        // Layer 3: Document Title (Historical fallback)
         if (title) {
             found = apps.find(app =>
                 title.includes(app.name.toLowerCase().split('.')[0]) ||
@@ -37,13 +42,6 @@
             );
             if (found) return found;
         }
-
-        // Layer 4: DOM Signatures (The "Nuclear" Fallback)
-        if (document.querySelector('[x-data]')) return apps.find(a => a.id === 'alpine');
-        if (document.querySelector('todo-app')) return apps.find(a => a.id === 'lit');
-        if (document.querySelector('meta[content*="create-react-app"]')) return apps.find(a => a.id === 'react');
-        if (document.body && document.body.innerHTML.includes('svelte-')) return apps.find(a => a.id === 'svelte');
-        if (document.querySelector('script[src*="stencil"]')) return apps.find(a => a.id === 'stencil');
 
         return null;
     }

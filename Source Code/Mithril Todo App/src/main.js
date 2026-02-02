@@ -50,7 +50,7 @@ const TodoApp = {
         });
 
         return [
-            m(".app-container", [
+            m(".app-container.mithril-todo-app", [
                 m("h1", "Mithril To-Do App"),
                 m("form.input-group", {
                     onsubmit: (e) => {

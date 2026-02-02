@@ -77,7 +77,7 @@ const filteredTodos = computed(() => {
 </script>
 
 <template>
-  <div class="app-container">
+  <div class="app-container vue-todo-app">
     <h1>Vue To-Do App</h1>
     
     <form class="input-group" @submit.prevent="addTodo">
