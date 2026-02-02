@@ -13,22 +13,23 @@
         { id: 'vue', name: 'Vue', path: 'Vue Todo App', logo: 'vue.png', color: '#42b883', desc: 'The Progressive JavaScript Framework. Vue is designed to be incrementally adoptable, focusing on the view layer only, making it easy to pick up and integrate with other libraries or existing projects while also being capable of powering sophisticated SPAs.' }
     ];
 
-    // Identify Current App (Ultra-robust detection)
+    // Identify Current App (Ultra-robust detection matrix)
     function getApp() {
         const path = window.location.pathname;
         const title = document.title ? document.title.toLowerCase() : "";
+        const h1 = document.querySelector('h1') ? document.querySelector('h1').innerText.toLowerCase() : "";
 
-        // 1. Path Match (Highest Priority)
+        // Layer 1: Path Match (Production & Repo structure)
         let found = apps.find(app => path.includes(encodeURIComponent(app.path)) || path.includes(app.path));
         if (found) return found;
 
-        // 2. DOM signature match (Critical for Localhost / Late Detection)
-        if (document.querySelector('[x-data]')) return apps.find(a => a.id === 'alpine');
-        if (document.querySelector('app-root')) return apps.find(a => a.id === 'angular');
-        if (document.querySelector('todo-app')) return apps.find(a => a.id === 'lit');
-        if (document.body && document.body.innerHTML.includes('svelte-')) return apps.find(a => a.id === 'svelte');
+        // Layer 2: H1 Text Match (Localhost Tie-breaker)
+        if (h1) {
+            found = apps.find(app => h1.includes(app.name.toLowerCase().split('.')[0]));
+            if (found) return found;
+        }
 
-        // 3. Title Fallback
+        // Layer 3: Title Match (Localhost Fallback)
         if (title) {
             found = apps.find(app =>
                 title.includes(app.name.toLowerCase().split('.')[0]) ||
@@ -37,25 +38,37 @@
             if (found) return found;
         }
 
+        // Layer 4: DOM Signatures (The "Nuclear" Fallback)
+        if (document.querySelector('[x-data]')) return apps.find(a => a.id === 'alpine');
+        if (document.querySelector('todo-app')) return apps.find(a => a.id === 'lit');
+        if (document.querySelector('meta[content*="create-react-app"]')) return apps.find(a => a.id === 'react');
+        if (document.body && document.body.innerHTML.includes('svelte-')) return apps.find(a => a.id === 'svelte');
+        if (document.querySelector('script[src*="stencil"]')) return apps.find(a => a.id === 'stencil');
+
         return null;
     }
 
-    // Initial Detection
+    // Initial Detection & State
     let currentApp = getApp();
+    let prevApp = null;
+    let nextApp = null;
 
     // Dynamic Re-detection (Late binding)
     function ensureApp() {
         if (!currentApp) {
             currentApp = getApp();
-            if (currentApp) {
-                console.log(`%c [Shell] Late Detection: ${currentApp.name} `, `background: ${currentApp.color}; color: white; border-radius: 3px; font-weight: bold;`);
-                document.documentElement.style.setProperty('--shell-accent', currentApp.color);
-            }
+        }
+        if (currentApp && (!prevApp || !nextApp)) {
+            const idx = apps.indexOf(currentApp);
+            prevApp = apps[(idx - 1 + apps.length) % apps.length];
+            nextApp = apps[(idx + 1) % apps.length];
+            console.log(`%c [Shell] Context Set: ${currentApp.name} `, `background: ${currentApp.color}; color: white; border-radius: 3px; font-weight: bold;`);
+            document.documentElement.style.setProperty('--shell-accent', currentApp.color);
         }
         return currentApp;
     }
 
-    const currentIndex = apps.indexOf(currentApp);
+    ensureApp();
 
     // State Sync Configuration
     const MASTER_KEY = 'universal-todo-master';
@@ -106,11 +119,12 @@
         value: function (key, value) {
             const app = ensureApp();
             if (app && key === KEY_MAP[app.id]) {
+                console.log(`%c [Storage] setItem Bridge: ${key} -> ${MASTER_KEY} (${app.id}) `, "color: #42b883; font-weight: bold;");
                 try {
                     const data = JSON.parse(value);
                     const normalized = normalizeToMaster(app.id, data);
                     originalSetItem.call(this, MASTER_KEY, JSON.stringify(normalized));
-                } catch (e) { }
+                } catch (e) { console.error("[Storage] setItem Bridge Error:", e); }
             }
             return originalSetItem.apply(this, arguments);
         },
@@ -124,11 +138,12 @@
             if (app && key === KEY_MAP[app.id]) {
                 const masterData = originalGetItem.call(this, MASTER_KEY);
                 if (masterData) {
+                    console.log(`%c [Storage] getItem Bridge: ${MASTER_KEY} -> ${key} (${app.id}) `, "color: #3b82f6; font-weight: bold;");
                     try {
                         const parsed = JSON.parse(masterData);
                         const appSpecific = normalizeFromMaster(app.id, parsed);
                         return JSON.stringify(appSpecific);
-                    } catch (e) { }
+                    } catch (e) { console.error("[Storage] getItem Bridge Error:", e); }
                 }
             }
             return originalGetItem.apply(this, arguments);
@@ -168,15 +183,12 @@
     }
 
     // UI State & Variables
-    if (currentApp) document.documentElement.style.setProperty('--shell-accent', currentApp.color);
+    // The accent color is now set within ensureApp()
+    // if (currentApp) document.documentElement.style.setProperty('--shell-accent', currentApp.color);
 
     function initShell() {
         const app = ensureApp();
         if (!app) return;
-
-        const currentIndex = apps.indexOf(app);
-        const prevApp = apps[(currentIndex - 1 + apps.length) % apps.length];
-        const nextApp = apps[(currentIndex + 1) % apps.length];
 
         const inject = () => {
             if (document.getElementById('gallery-shell-root')) return;
@@ -278,7 +290,7 @@
                     <img src="../_portal/logos/${app.logo}" class="shell-result-logo">
                     <div class="shell-result-info">
                         <div class="shell-result-name">${app.name}</div>
-                        <div class="shell-result-meta">${app.id === currentApp.id ? 'Currently Viewing' : 'Framework'}</div>
+                        <div class="shell-result-meta">${currentApp && app.id === currentApp.id ? 'Currently Viewing' : 'Framework'}</div>
                     </div>
                 </div>
             `).join('');
@@ -287,8 +299,14 @@
             });
         };
 
-        document.getElementById('shell-prev').onclick = () => navigate(prevApp);
-        document.getElementById('shell-next').onclick = () => navigate(nextApp);
+        document.getElementById('shell-prev').onclick = () => {
+            const app = ensureApp();
+            if (prevApp) navigate(prevApp);
+        };
+        document.getElementById('shell-next').onclick = () => {
+            const app = ensureApp();
+            if (nextApp) navigate(nextApp);
+        };
         document.getElementById('shell-info').onclick = toggleModal;
         document.getElementById('shell-modal-close').onclick = toggleModal;
         modalOverlay.onclick = toggleModal;
@@ -321,8 +339,14 @@
 
             if (isTyping()) return;
 
-            if (e.key === 'ArrowLeft') navigate(prevApp);
-            else if (e.key === 'ArrowRight') navigate(nextApp);
+            if (e.key === 'ArrowLeft') {
+                ensureApp();
+                if (prevApp) navigate(prevApp);
+            }
+            else if (e.key === 'ArrowRight') {
+                ensureApp();
+                if (nextApp) navigate(nextApp);
+            }
             else if (e.key === '?' || (e.key === '/' && e.shiftKey)) toggleModal();
             else if (e.key.toLowerCase() === 'h') window.location.href = '../';
         });
