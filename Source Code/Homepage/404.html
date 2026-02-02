@@ -4,10 +4,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found | JS Frameworks</title>
-    <link rel="icon" type="image/x-icon" href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/_portal/favicon.ico">
+    <title>404 - Framework Missing | JS Frameworks</title>
+    <!-- R-Style Data URI Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2358a6ff'%3E%3Cpath d='M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.383 12-12-5.383-12-12-12zm4.332 17.5c-.273.084-.551.144-.834.182-1.396.184-2.822-.243-3.692-1.258l-1.996-2.332c-.104-.122-.162-.276-.162-.435v-1.666c0-.204.081-.4.225-.544.144-.144.34-.225.544-.225h.412c.506 0 .977-.253 1.259-.676l.322-.486c.071-.107.108-.232.108-.36s-.037-.253-.108-.36l-.322-.486a1.498 1.498 0 0 0-1.259-.676h-2.182v5.27h-1.636V8.636h3.818c1.506 0 2.727 1.221 2.727 2.727 0 .584-.183 1.127-.495 1.574-.336.483-.807.85-1.353 1.037.289.117.55.293.766.52l2.365 2.766c.159.186.241.424.227.662-.014.238-.119.461-.295.63s-.404.26-.642.257-.461-.131-.62-.31l-3.238-3.793z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/_portal/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* R-Style 404 Override Styles */
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% -20%, #161b22 0%, #0d1117 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: 12rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Ensure text is transparent */
+            color: transparent;
+            /* Fallback */
+            position: relative;
+            animation: glitch 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+
+            20% {
+                transform: translate(-3px, 3px);
+            }
+
+            40% {
+                transform: translate(-3px, -3px);
+                filter: hue-rotate(45deg);
+            }
+
+            60% {
+                transform: translate(3px, 3px);
+            }
+
+            80% {
+                transform: translate(3px, -3px);
+                filter: hue-rotate(-45deg);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 2rem 0 3rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .btn-home {
+            padding: 1rem 2.5rem;
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn-home:hover {
+            background: var(--accent-blue);
+            color: var(--bg-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.3);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,11 +123,17 @@
         </button>
     </div>
 
-    <div class="container error-container">
-        <h1 class="error-code">404</h1>
-        <p class="error-message">Oops! The framework you're looking for hasn't been implemented yet.</p>
-        <a href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/index.html" class="home-btn">Return to JS Frameworks</a>
+    <h1 class="error-code">404</h1>
+    <h2
+        style="font-family: var(--font-heading); font-size: 2.8rem; margin-top: 1rem; margin-bottom: 1.5rem; color: var(--text-primary);">
+        Framework Not Found!</h2>
+
+    <div class="message">
+        <p>The framework you're looking for hasn't been implemented yet.</p>
+        <p>Return to the main dashboard to continue exploring.</p>
     </div>
+
+    <a href="index.html" class="btn-home">Return to Ecosystem</a>
 
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top" title="Go to top">
@@ -33,10 +141,11 @@
     </button>
 
     <footer>
-        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank">Amey Thakur</a> & <a
-                href="https://github.com/Mega-Satish" target="_blank">Mega Satish</a> • &copy; 2022</p>
-        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS"
-                target="_blank">GitHub Repo</a></p>
+        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank" class="footer-author"
+                style="color: inherit;">Amey Thakur</a> &
+            <a href="https://github.com/msatmod" target="_blank" class="footer-author" style="color: inherit;">Mega
+                Satish</a>
+        </p>
     </footer>
 
     <script>
@@ -69,33 +178,6 @@
                 }
             }
 
-            // Back to top button logic
-            const backToTopButton = document.getElementById('backToTop');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
-
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // 404 Fallback
-            const path = window.location.pathname;
-            const repoName = '/JAVASCRIPT-FRAMEWORKS-TODO-APPS/';
-
-            if (path.startsWith(repoName) && path !== repoName && path !== repoName + 'index.html') {
-                // This page is likely being viewed as a 404
-                console.log('404 Page Loaded for path:', path);
-            }
-
             // Share Functionality (Global)
             window.shareRepo = async () => {
                 const shareData = {
@@ -103,55 +185,14 @@
                     text: 'Explore Todo Apps built with 10 different JavaScript frameworks!',
                     url: 'https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS'
                 };
-                try {
-                    if (navigator.share) {
-                        await navigator.share(shareData);
-                    } else {
-                        await navigator.clipboard.writeText(shareData.url);
-                        alert('Link copied to clipboard!');
-                    }
-                } catch (err) {
-                    console.error('Error sharing:', err);
+                if (navigator.share) {
+                    try { await navigator.share(shareData); } catch (err) { console.error(err); }
+                } else {
+                    navigator.clipboard.writeText(shareData.url);
+                    alert('Link copied to clipboard!');
                 }
             };
         });
-
-        // Security and Easter Egg Logic
-        (function () {
-            // 1. Anti-Right-Click
-            document.addEventListener('contextmenu', e => e.preventDefault());
-
-            // 2. Shortcut Protection
-            document.addEventListener('keydown', e => {
-                if (e.keyCode === 123 || // F12
-                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
-                    (e.ctrlKey && e.keyCode === 85) // Ctrl+U
-                ) {
-                    e.preventDefault();
-                }
-            });
-
-            // 3. Console Message
-            console.log(
-                '%c Created by Amey Thakur & Mega Satish ',
-                'background: #324fff; color: #fff; font-size: 20px; font-weight: bold; border-radius: 5px; padding: 10px;'
-            );
-            console.log('%c GitHub Repo: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS ', 'color: #3b82f6; text-decoration: underline;');
-            console.log('%c Amey Thakur: https://github.com/Amey-Thakur ', 'color: #64748b;');
-            console.log('%c Mega Satish: https://github.com/Mega-Satish ', 'color: #64748b;');
-
-            // 4. Easter Egg (AMEYMEGA)
-            let sequence = '';
-            const secret = 'AMEYMEGA';
-            document.addEventListener('keydown', e => {
-                sequence += e.key.toUpperCase();
-                if (sequence.endsWith(secret)) {
-                    alert('🌟 Easter Egg Found! 🌟\n\nThis portal was meticulously crafted by Amey Thakur & Mega Satish.\n\nThank you for exploring our JS Framework Ecosystem!');
-                    sequence = '';
-                }
-                if (sequence.length > 20) sequence = sequence.substring(sequence.length - 20);
-            });
-        })();
     </script>
 </body>
 

@@ -136,8 +136,8 @@ p.subtitle {
 .hero-identity-grid {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
@@ -145,31 +145,58 @@ p.subtitle {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.5rem 1.25rem;
+    background: var(--card-bg);
+    padding: 0.5rem 1.25rem 0.5rem 0.5rem;
     border-radius: 50px;
-    border: 1px solid var(--border-color);
     text-decoration: none;
     color: var(--text-primary);
+    font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.author-pill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hero-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+    border-radius: 50px;
 }
 
 .author-pill:hover {
-    transform: translateY(-3px);
-    background: var(--card-bg);
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    color: white;
+}
+
+.author-pill:hover::before {
+    opacity: 1;
 }
 
 .author-pill img {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    border: 2px solid var(--accent-color);
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 .author-pill span {
+    position: relative;
+    z-index: 1;
     font-weight: 600;
     font-family: var(--font-heading);
     font-size: 0.95rem;
@@ -331,15 +358,29 @@ footer {
     backdrop-filter: blur(8px);
 }
 
-footer a {
-    color: var(--accent-color);
+footer a.footer-author {
+    color: var(--text-primary);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+footer a.footer-repo {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 footer a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
+    color: var(--accent-color) !important;
+    text-decoration: none;
+    transform: translateY(-2px);
+    display: inline-block;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
 }
 
 /* Back to Top */
