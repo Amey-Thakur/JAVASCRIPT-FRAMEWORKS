@@ -1,3 +1,19 @@
+/**
+ * ================================================================================
+ * FILE: App.module.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * Module-scoped design specification for the Solid implementation. Provides 
+ * encapsulated styling for high-performance localized UI component rendering.
+ * ================================================================================
+ */
+
 .App {
   text-align: center;
 }
@@ -27,6 +43,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

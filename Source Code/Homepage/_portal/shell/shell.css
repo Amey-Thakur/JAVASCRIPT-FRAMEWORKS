@@ -1,8 +1,32 @@
+/**
+ * ================================================================================
+ * FILE: shell.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The design system specification for the Global Shell interface. This stylesheet
+ * defines the aesthetic parameters of the cross-framework overlay, utilizing:
+ * 1. CSS Custom Properties for dynamic framework-aware accent shading.
+ * 2. High-index glassmorphism via backdrop-filter for premium UI depth.
+ * 3. Modern CSS View Transitions and spring-based animation keyframes to ensure
+ *    fluid inter-app context switching and visual continuity.
+ * ================================================================================
+ */
+
 @view-transition {
     navigation: auto;
 }
 
-/* Framework Gallery Overlay Styles */
+/**
+ * DESIGN SYSTEM ATOMS
+ * Implements a set of scoped tokens to maintain architectural consistency 
+ * across the overlay components without polluting the framework's global namespace.
+ */
 :root {
     --shell-bg: rgba(15, 23, 42, 0.7);
     --shell-accent: #3b82f6;
@@ -175,6 +199,14 @@
     }
 }
 
+/* ... mobile responsiveness specification ... */
+
+/**
+ * COMMAND PALETTE ARCHITECTURE
+ * Implements a high-precision search interface for rapid inter-framework 
+ * navigation. Features aggressive blur-based glassmorphism and elastic 
+ * scaling transitions for a premium "Spotlight" experience.
+ */
 /* Command Palette Styles */
 .shell-command-palette {
     position: fixed;

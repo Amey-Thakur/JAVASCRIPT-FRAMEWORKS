@@ -1,11 +1,42 @@
+<!--
+================================================================================
+FILE: App.svelte
+PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+            Mega Satish (https://github.com/msatmod)
+REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+RELEASE DATE: June 23, 2022
+LICENSE: MIT License
+--------------------------------------------------------------------------------
+TECHNICAL DESCRIPTION:
+The primary architectural specification for the Svelte implementation. This 
+monolithic component orchestrates the application's lifecycle using 
+compiler-driven reactivity ($state, $derived). It demonstrates a high-efficiency 
+paradigm where DOM updates are surgically applied without a virtual DOM, 
+synchronized with the "Magic Sync" Virtual Storage Bridge.
+================================================================================
+-->
 <script>
   import "./app.css";
+
+  /**
+   * ARCHITECTURAL SPECIFICATION: REACTIVE STATE ORCHESTRATION
+   * Implements the core application logic using Svelte 5 runes. Features 
+   * surgical state tracking for tasks and filters with automated 
+   * persistence synchronization via the Virtual Storage Bridge.
+   */
 
   let todos = $state(JSON.parse(localStorage.getItem("svelte-todos") || "[]"));
   let newTodo = $state("");
   let filter = $state("all");
 
   $effect(() => {
+    /**
+     * VIRTUAL STORAGE INTERFACE
+     * Persists the reactive state to the underlying storage primitive.
+     * This effect is triggered surgically by compiler-tracked dependencies, 
+     * ensuring every update is reflected in the Global Shell efficiently.
+     */
     localStorage.setItem("svelte-todos", JSON.stringify(todos));
   });
 

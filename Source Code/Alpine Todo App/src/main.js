@@ -1,6 +1,30 @@
+/**
+ * ================================================================================
+ * FILE: main.js
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The reactive orchestration engine for the Alpine.js implementation. This file 
+ * initializes the 'todoApp' data context, providing localized state persistence 
+ * through proxy-based reactivity. It integrates seamlessly with the global 
+ * "Magic Sync" Virtual Storage Bridge while maintaining the framework's core 
+ * goal of non-intrusive progressive enhancement.
+ * ================================================================================
+ */
+
 import Alpine from 'alpinejs';
 import './style.css';
 
+/**
+ * STATE ENCAPSULATION
+ * Implements the core business logic using Alpine's reactive proxy system.
+ * The 'save' method ensures parity with and triggers the Virtual Storage interceptors.
+ */
 Alpine.data('todoApp', () => ({
     todos: JSON.parse(localStorage.getItem('todos') || '[]'),
     newTodo: '',
@@ -49,6 +73,11 @@ window.Alpine = Alpine;
 Alpine.start();
 
 // Security and Easter Egg Logic
+/**
+ * SYSTEM INTEGRITY LAYERS
+ * Implements professional-grade security abstraction and internal metadata tracking 
+ * to provide a high-fidelity development and user experience across the portal.
+ */
 (function () {
     // 1. Anti-Right-Click
     document.addEventListener('contextmenu', e => e.preventDefault());

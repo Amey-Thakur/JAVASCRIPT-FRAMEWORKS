@@ -1,5 +1,30 @@
+/**
+ * ================================================================================
+ * FILE: App.vue
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the Vue implementation. This SFC 
+ * orchestrates the application's lifecycle using the Script Setup composition 
+ * patterns (ref, computed, watch). It features declarative template syntax 
+ * and granular reactivity, synchronized with the "Magic Sync" Virtual Storage Bridge.
+ * ================================================================================
+ */
+
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
+
+/**
+ * ARCHITECTURAL SPECIFICATION: REACTIVE STATE ORCHESTRATION
+ * Implements the core application logic using Vue's Composition API. Features 
+ * proxy-based reactive tracking for tasks and filters with automated 
+ * persistence synchronization.
+ */
 
 const todos = ref([]);
 const newTodo = ref('');
@@ -48,6 +73,12 @@ onMounted(() => {
 });
 
 watch(todos, (newVal) => {
+  /**
+   * VIRTUAL STORAGE INTERFACE
+   * Persists the reactive state to the underlying storage primitive.
+   * This watcher monitors deep changes in the todo collection, ensuring 
+   * structural synchronization with the Global Shell.
+   */
   localStorage.setItem('vue-todos', JSON.stringify(newVal));
 }, { deep: true });
 

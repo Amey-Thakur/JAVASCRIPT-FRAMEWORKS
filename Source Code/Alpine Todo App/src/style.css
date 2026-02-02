@@ -1,7 +1,30 @@
+/**
+ * ================================================================================
+ * FILE: style.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The architectural design specification for the Alpine.js Todo implementation. 
+ * Defines the spatial relationships, typography, and color semiotics of the 
+ * application, ensuring high-fidelity visual consistency through scoped CSS 
+ * Custom Properties and mobile-first responsive layout constraints.
+ * ================================================================================
+ */
+
 * {
   box-sizing: border-box;
 }
 
+/**
+ * AESTHETIC TOKENIZATION
+ * Implements a scoped design system via CSS variables, facilitating 
+ * atomic design updates and cross-framework visual alignment.
+ */
 :root {
   --primary: #6366f1;
   --bg: #f8fafc;
@@ -209,6 +232,11 @@ input[type="text"]:focus {
   place-items: center;
 }
 
+/**
+ * UI STATE INTERPOLATION
+ * Defines the interactive logic for component state feedback, using 
+ * high-contrast glyphs and geometric constraints for accessibility.
+ */
 .checkbox.checked {
   background-color: var(--primary);
   border-color: var(--primary);

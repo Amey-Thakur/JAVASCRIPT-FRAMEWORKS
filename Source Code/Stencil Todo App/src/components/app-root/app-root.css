@@ -1,3 +1,21 @@
+/**
+ * ================================================================================
+ * FILE: app-root.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The design system specification for the Stencil implementation. Orchestrates 
+ * the application's visual semantics within an encapsulated Shadow DOM, 
+ * focusing on purple-tinted interaction patterns and robust responsive 
+ * layout constraints for a professional user experience.
+ * ================================================================================
+ */
+
 * {
     box-sizing: border-box;
 }

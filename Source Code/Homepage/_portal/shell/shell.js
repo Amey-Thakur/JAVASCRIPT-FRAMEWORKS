@@ -1,3 +1,24 @@
+/**
+ * ================================================================================
+ * FILE: shell.js
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The "Magic Sync" Virtual Storage Bridge and Global Shell Interface. This script
+ * acts as the centralized architectural spine of the ecosystem, implementing:
+ * 1. Framework Identification: A multi-layered detection matrix (DOM, URL, Title).
+ * 2. Virtual Storage Bridge: Proxy-intercepts localStorage API to normalize and 
+ *    synchronize state across 10 distinct framework schemas into a "Master Key".
+ * 3. Unified UI: Injects a premium navigation overlay and command palette to
+ *    facilitate seamless inter-framework transitions.
+ * ================================================================================
+ */
+
 /* Framework Gallery Overlay Logic */
 (function () {
     const apps = [
@@ -14,6 +35,12 @@
     ];
 
     // Identify Current App (Ultra-robust detection matrix)
+    /**
+     * FRAMEWORK IDENTIFICATION MATRIX
+     * Implements a tiered heuristic to identify the active framework context.
+     * Uses DOM signatures as primary proof, followed by URL pathing, and
+     * document titles as secondary verification signals.
+     */
     function getApp() {
         const path = window.location.pathname;
         const title = document.title ? document.title.toLowerCase() : "";
@@ -88,6 +115,12 @@
     };
 
     // Data Normalization Utilities
+    /**
+     * VIRTUAL STORAGE NORMALIZATION (INGRESS)
+     * Maps heterogeneous framework data models into the universal 'Master' format.
+     * Extracts disparate properties (text, title, content) and enforces a 
+     * shared JSON schema to enable cross-paradigm state synchronization.
+     */
     function normalizeToMaster(appId, data) {
         if (!Array.isArray(data)) return [];
         return data.map((t, i) => {
@@ -100,6 +133,12 @@
         });
     }
 
+    /**
+     * VIRTUAL STORAGE NORMALIZATION (EGRESS)
+     * Reconstitutes the universal 'Master' data into the specific schema 
+     * expectations of the active framework, ensuring compatibility across 
+     * legacy string formats and modern object-based reactivity.
+     */
     function normalizeFromMaster(appId, masterData) {
         if (!Array.isArray(masterData)) return [];
         if (appId === 'react' && masterData.some(t => typeof t === 'string')) {
@@ -116,7 +155,12 @@
     const originalRemoveItem = Storage.prototype.removeItem;
     const originalClear = Storage.prototype.clear;
 
-    // 1. Intercept setItem
+    /**
+     * STORAGE PROXY INTERCEPTION
+     * Dynamically overrides the Native Storage API to create the Virtual Bridge.
+     * Intercepts mutations to framework-specific keys and redirects the payload 
+     * through the normalization pipeline into the 'universal-todo-master' key.
+     */
     Object.defineProperty(Storage.prototype, 'setItem', {
         value: function (key, value) {
             const app = ensureApp();

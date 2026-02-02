@@ -1,3 +1,21 @@
+/**
+ * ================================================================================
+ * FILE: style.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The design system specification for the Mithril implementation. Orchestrates 
+ * the application's visual semantics, focusing on high-contrast interaction 
+ * feedback and responsive geometric constraints to ensure a premium user 
+ * experience within the minimalist Mithril environment.
+ * ================================================================================
+ */
+
 * {
     box-sizing: border-box;
 }

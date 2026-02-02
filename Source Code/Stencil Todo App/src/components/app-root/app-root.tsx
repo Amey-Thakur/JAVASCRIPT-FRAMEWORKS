@@ -1,3 +1,22 @@
+/**
+ * ================================================================================
+ * FILE: app-root.tsx
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the Stencil implementation. This 
+ * decorator-driven component orchestrates the application's lifecycle using 
+ * build-time compilation to standard Custom Elements. It features reactive 
+ * state management via @State and @Component decorators, ensuring efficient 
+ * Shadow DOM encapsulation and "Magic Sync" storage integration.
+ * ================================================================================
+ */
+
 import { Component, State, h, Host } from '@stencil/core';
 
 interface Todo {
@@ -11,6 +30,12 @@ interface Todo {
     styleUrl: 'app-root.css',
     shadow: true,
 })
+/**
+ * ARCHITECTURAL SPECIFICATION: WEB COMPONENT ORCHESTRATION
+ * Defines the application's logical structure as a compiled Custom Element.
+ * Utilizes Stencil's reactive data binding and Virtual DOM for efficient 
+ * rendering while maintaining native interoperability.
+ */
 export class AppRoot {
     @State() todos: Todo[] = [];
     @State() newTodo: string = '';
@@ -26,6 +51,12 @@ export class AppRoot {
     }
 
     componentDidUpdate() {
+        /**
+         * VIRTUAL STORAGE INTERFACE
+         * Synchronizes the internal component state with the underlying storage 
+         * primitive upon every reactive update. This integration ensures 
+         * cross-framework persistence via the Global Shell.
+         */
         localStorage.setItem('stencil-todos', JSON.stringify(this.todos));
     }
 

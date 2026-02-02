@@ -1,7 +1,32 @@
+/**
+ * ================================================================================
+ * FILE: index.jsx
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the Solid implementation. This 
+ * entry point orchestrates the application's lifecycle using fine-grained 
+ * signals (createSignal, createEffect). It demonstrates a high-performance 
+ * reactive paradigm where DOM updates are targeted and reconciliation-free, 
+ * synchronized with the project's "Magic Sync" Virtual Storage Bridge.
+ * ================================================================================
+ */
+
 import { createSignal, createEffect, onMount, For, Show } from 'solid-js';
 import { render } from 'solid-js/web';
 import './style.css';
 
+/**
+ * ARCHITECTURAL SPECIFICATION: COMPONENT ORCHESTRATION
+ * Implements the core application logic using functional components and 
+ * fine-grained reactive primitives. Features surgical state tracking 
+ * for tasks and filters with automated persistence.
+ */
 const App = () => {
     const [todos, setTodos] = createSignal([]);
     const [newTodo, setNewTodo] = createSignal('');
@@ -13,6 +38,12 @@ const App = () => {
     });
 
     createEffect(() => {
+        /**
+         * VIRTUAL STORAGE INTERFACE
+         * Persists the reactive state to the underlying storage primitive.
+         * This effect is triggered surgically by signal mutations, ensuring 
+         * every update is reflected in the Global Shell without full-tree re-renders.
+         */
         localStorage.setItem('solid-todos', JSON.stringify(todos()));
     });
 

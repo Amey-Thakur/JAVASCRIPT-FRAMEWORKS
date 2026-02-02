@@ -1,3 +1,21 @@
+/**
+ * ================================================================================
+ * FILE: styles.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The global design system specification for the Angular implementation. 
+ * Orchestrates the holistic visual language across the application, 
+ * implementing standardized typography scales, responsive layout 
+ * primitives, and custom property tokenization for atomic design alignment.
+ * ================================================================================
+ */
+
 * {
     box-sizing: border-box;
 }

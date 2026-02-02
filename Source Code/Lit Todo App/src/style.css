@@ -1,3 +1,20 @@
+/**
+ * ================================================================================
+ * FILE: style.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The foundational design primitives for the Lit implementation. Defines 
+ * the global environmental variables and body-level aesthetic constraints 
+ * that serve as the background for the encapsulated Shadow DOM elements.
+ * ================================================================================
+ */
+
 body {
     background-color: #f8fafc;
     margin: 0;

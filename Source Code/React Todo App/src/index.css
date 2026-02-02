@@ -1,3 +1,20 @@
+/**
+ * ================================================================================
+ * FILE: index.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * Global environmental CSS primitives for the React implementation. Defines 
+ * the baseline typography, antialiasing constraints, and fundamental 
+ * body-level layout reset for the application.
+ * ================================================================================
+ */
+
 body {
   margin: 0;
   font-family: 'Play', sans-serif;

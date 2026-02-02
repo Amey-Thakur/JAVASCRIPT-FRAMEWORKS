@@ -1,6 +1,31 @@
+/**
+ * ================================================================================
+ * FILE: main.js
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the Mithril.js implementation. 
+ * This file defines the core Todo component, orchestrating its lifecycle 
+ * through high-performance virtual DOM rendering. It implements an explicit 
+ * state management model (oninit/view) and integrates seamlessly with the 
+ * global "Magic Sync" Virtual Storage Bridge.
+ * ================================================================================
+ */
+
 import m from "mithril";
 import "./style.css";
 
+/**
+ * ARCHITECTURAL SPECIFICATION: COMPONENT ORCHESTRATION
+ * Defines the application's logical structure using Mithril's functional 
+ * component model. Features explicit persistence synchronization and 
+ * hyperscript-based declarative rendering for optimal performance.
+ */
 const TodoApp = {
     oninit: function (vnode) {
         vnode.state.todos = JSON.parse(localStorage.getItem("mithril-todos") || "[]");
@@ -37,6 +62,12 @@ const TodoApp = {
         };
 
         vnode.state.save = function () {
+            /**
+             * VIRTUAL STORAGE INTERFACE
+             * Synchronizes the internal component state with the underlying storage 
+             * primitive. This mutation triggers the Global Shell interceptors to
+             * maintain cross-framework state parity.
+             */
             localStorage.setItem("mithril-todos", JSON.stringify(vnode.state.todos));
         };
     },

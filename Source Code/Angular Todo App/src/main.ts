@@ -1,3 +1,22 @@
+/**
+ * ================================================================================
+ * FILE: main.ts
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary bootstrap entry point for the Angular ecosystem. This file 
+ * orchestrates the application's initialization sequence using the 
+ * bootstrapApplication API. It serves as the bridge between the browser 
+ * environment and the Angular runtime, ensuring dependency injection 
+ * configurations are provisioned before component hydration.
+ * ================================================================================
+ */
+
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { config } from './app/app.config';

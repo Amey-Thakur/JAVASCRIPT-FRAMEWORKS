@@ -1,7 +1,32 @@
+/**
+ * ================================================================================
+ * FILE: main.jsx
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the React implementation. This 
+ * monolithic component orchestrates the application's lifecycle using the 
+ * useState and useEffect hooks. It demonstrates a declarative UI paradigm 
+ * where the DOM is a predictable function of state, synchronized with 
+ * the project's "Magic Sync" Virtual Storage Bridge.
+ * ================================================================================
+ */
+
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.css';
 
+/**
+ * ARCHITECTURAL SPECIFICATION: COMPONENT ORCHESTRATION
+ * Implements the core application logic using functional components and hooks.
+ * Features granular state tracking for tasks and filters, with automated 
+ * persistence synchronization via the Virtual Storage Bridge.
+ */
 function App() {
     const [todos, setTodos] = useState(() => {
         const saved = localStorage.getItem('react-todos');
@@ -11,6 +36,12 @@ function App() {
     const [filter, setFilter] = useState('all');
 
     useEffect(() => {
+        /**
+         * VIRTUAL STORAGE INTERFACE
+         * Persists the reactive state to the underlying storage primitive.
+         * This effect ensures that every state mutation is reflected in 
+         * the Global Shell, maintaining cross-framework synchronization.
+         */
         localStorage.setItem('react-todos', JSON.stringify(todos));
     }, [todos]);
 

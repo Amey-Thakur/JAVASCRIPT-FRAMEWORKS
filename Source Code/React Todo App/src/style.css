@@ -1,3 +1,21 @@
+/**
+ * ================================================================================
+ * FILE: style.css
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The design system specification for the React implementation. Orchestrates 
+ * the application's visual semantics, focusing on high-contrast cyan 
+ * interaction patterns and responsive geometric constraints to ensure 
+ * a premium user experience within the React ecosystem.
+ * ================================================================================
+ */
+
 * {
     box-sizing: border-box;
 }

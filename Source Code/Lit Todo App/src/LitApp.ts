@@ -1,3 +1,20 @@
+/**
+ * ================================================================================
+ * FILE: LitApp.ts
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * A secondary implementation variant for the Lit framework exploration. 
+ * Demonstrates a modular component approach with explicit property-based 
+ * state tracking and connectivity lifecycle hooks.
+ * ================================================================================
+ */
+
 import { html, css, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 

@@ -1,3 +1,22 @@
+/**
+ * ================================================================================
+ * FILE: app.component.ts
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The foundational component and logical anchor for the Angular implementation. 
+ * This standalone component encapsulates the entire Todo application lifecycle, 
+ * leveraging Zone.js for efficient change detection and TypeScript's strict 
+ * typing for reliable state management. It integrates with the "Magic Sync" 
+ * portal via explicit localStorage persistence calls.
+ * ================================================================================
+ */
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -64,6 +83,12 @@ interface Todo {
           class="repo-link">GitHub Repo</a></p>
     </footer>
   `,
+  /**
+   * SCHOLARLY SPECIFICATION: COMPONENT HYDRATION
+   * Implements the core task management logic through a highly typed 
+   * class-based architecture. Features bi-directional template binding 
+   * and persistent state synchronization via the Storage Bridge.
+   */
   styles: []
 })
 export class AppComponent {
@@ -118,6 +143,12 @@ export class AppComponent {
     return this.todos.some(t => t.completed);
   }
 
+  /**
+   * VIRTUAL STORAGE INTERFACE
+   * Persists the current state to the underlying storage primitive.
+   * This operation is intercepted by the Global Shell to ensure
+   * cross-framework synchronization within the repo ecosystem.
+   */
   save() {
     localStorage.setItem('angular-todos', JSON.stringify(this.todos));
   }

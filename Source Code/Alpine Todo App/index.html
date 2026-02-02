@@ -1,3 +1,20 @@
+<!--
+================================================================================
+FILE: index.html
+PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+            Mega Satish (https://github.com/msatmod)
+REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+RELEASE DATE: June 23, 2022
+LICENSE: MIT License
+--------------------------------------------------------------------------------
+TECHNICAL DESCRIPTION:
+The structural foundation for the Alpine.js implementation. This file defines 
+the declarative markup that leverages Alpine's reactive directives (x-data, 
+x-model, x-for) to bind state to the DOM. It demonstrates the framework's 
+minimalist approach to localized state management within a single HTML document.
+================================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +27,12 @@
 </head>
 
 <body>
+  <!-- 
+    SCHOLARLY SPECIFICATION: SYSTEM ORCHESTRATION
+    The 'x-data' directive initializes the reactive state tree (provided by main.js).
+    The '.alpine-todo-app' class serves as the static identification marker 
+    for the "Magic Sync" Virtual Storage bridge.
+  -->
   <div class="app-container alpine-todo-app" x-data="todoApp">
     <h1>Alpine To-Do App</h1>
 
@@ -26,6 +49,12 @@
     </div>
 
     <ul class="todo-list">
+      <!-- 
+        REACTIVE RECONCILIATION
+        Leverages the 'x-for' directive to dynamically synchronize the DOM 
+        with the filtered state of the 'todos' array, maintaining optimal 
+        re-rendering via the ':key' property.
+      -->
       <template x-for="todo in filteredTodos" :key="todo.id">
         <li class="todo-item">
           <div class="checkbox" :class="{ 'checked': todo.completed }" @click="toggleTodo(todo.id)">

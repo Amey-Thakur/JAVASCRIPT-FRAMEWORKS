@@ -1,3 +1,22 @@
+/**
+ * ================================================================================
+ * FILE: main.ts
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the Lit implementation. This 
+ * autonomous Custom Element leverages lit-html for high-performance rendering 
+ * and Shadow DOM for style encapsulation. It implements a reactive state 
+ * management system that seamlessly bridges with the global "Magic Sync" 
+ * portal storage.
+ * ================================================================================
+ */
+
 import './style.css';
 import { LitElement, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
@@ -8,6 +27,12 @@ interface Todo {
   completed: boolean;
 }
 
+/**
+ * ARCHITECTURAL SPECIFICATION: CUSTOM ELEMENT
+ * Implements a high-fidelity Todo application as a standard Web Component.
+ * Utilizes the @state decorator for granular reactivity and an encapsulated 
+ * CSS design system to ensure zero visual leakage into the global DOM.
+ */
 @customElement('todo-app')
 export class TodoApp extends LitElement {
   @state()
@@ -333,6 +358,12 @@ export class TodoApp extends LitElement {
     return this.todos;
   }
 
+  /**
+   * VIRTUAL STORAGE INTERFACE
+   * Synchronizes the internal reactive state with the underlying storage primitive.
+   * This mutation triggers the Global Shell interceptors to maintain 
+   * cross-framework synchronization within the portal ecosystem.
+   */
   private save() {
     localStorage.setItem('lit-todos', JSON.stringify(this.todos));
   }

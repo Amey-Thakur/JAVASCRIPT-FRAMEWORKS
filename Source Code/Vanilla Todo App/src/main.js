@@ -1,3 +1,22 @@
+/**
+ * ================================================================================
+ * FILE: main.js
+ * PROJECT: JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * ARCHITECTS: Amey Thakur (https://github.com/Amey-Thakur)
+ *            Mega Satish (https://github.com/msatmod)
+ * REPOSITORY: https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS
+ * RELEASE DATE: June 23, 2022
+ * LICENSE: MIT License
+ * --------------------------------------------------------------------------------
+ * TECHNICAL DESCRIPTION:
+ * The primary architectural specification for the Vanilla JS implementation. 
+ * This file orchestrates the application's lifecycle using imperative DOM 
+ * manipulation, manual event delegation, and direct synchronization with 
+ * the project's "Magic Sync" Virtual Storage Bridge. It represents the 
+ * foundational substrate upon which modern frameworks are built.
+ * ================================================================================
+ */
+
 import './style.css';
 
 const app = document.querySelector('#app');
@@ -40,6 +59,12 @@ app.innerHTML = `
 `;
 
 // State
+/**
+ * ARCHITECTURAL SPECIFICATION: IMPERATIVE STATE ORCHESTRATION
+ * Implements the core application logic using direct DOM API calls. Features 
+ * manual state tracking for tasks and filters with explicit persistence 
+ * synchronization via the Virtual Storage Bridge.
+ */
 let todos = JSON.parse(localStorage.getItem('vanilla-todos') || '[]');
 let filter = 'all';
 
@@ -53,6 +78,12 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 
 // Functions
 const save = () => {
+    /**
+     * VIRTUAL STORAGE INTERFACE
+     * Persists the imperative state to the underlying storage primitive.
+     * This method is called explicitly after every data mutation, ensuring 
+     * structural integrity across the Global Shell.
+     */
     localStorage.setItem('vanilla-todos', JSON.stringify(todos));
     render();
 };
