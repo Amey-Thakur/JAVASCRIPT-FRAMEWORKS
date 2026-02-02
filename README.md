@@ -5,7 +5,7 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
   ![Status](https://img.shields.io/badge/Status-Completed-success)
-  [![Technology](https://img.shields.io/badge/Technology-10%20Frameworks-blueviolet)](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS)
+  [![Technology](https://img.shields.io/badge/Technology-JS%20Frameworks-blueviolet)](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS)
   [![Developed by Amey Thakur and Mega Satish](https://img.shields.io/badge/Developed%20by-Amey%20Thakur%20%26%20Mega%20Satish-blue.svg)](https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS)
 
   A multicentric, comparative architecture designed to systematically benchmark UI implementation patterns across 10 distinct web frameworks, integrated via a universal Virtual Storage Bridge.
