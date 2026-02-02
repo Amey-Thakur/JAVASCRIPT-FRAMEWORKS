@@ -215,14 +215,6 @@ To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
 | **Vanilla** | Native | `npm run dev` | 5173 |
 
 ---
-
-<!-- USAGE GUIDELINES -->
-| **Mithril** | Tiny VDOM | `npm run dev` | 5173 |
-| **Vanilla** | Native | `npm run dev` | 5173 |
-
----
-
-<!-- USAGE GUIDELINES -->
 <a name="usage-guidelines"></a>
 ## Usage Guidelines
 
