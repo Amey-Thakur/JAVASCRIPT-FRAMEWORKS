@@ -25,36 +25,33 @@
         body {
             background-color: var(--bg-color);
             background-image: radial-gradient(circle at 50% -20%, #161b22 0%, #0d1117 100%);
-            min-height: 100vh;
+            height: 100vh;
+            /* Force viewport height */
+            width: 100vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            overflow-x: hidden;
-            /* Allow vertical scroll, prevent horizontal */
+            overflow: hidden;
+            /* Disable scrolling */
             margin: 0;
-            padding-top: 80px;
-            /* Ensure headroom below top controls */
-            padding-bottom: 2rem;
-            /* Space for footer */
+            padding: 0 1rem;
             box-sizing: border-box;
         }
 
         .error-code {
             font-family: var(--font-heading);
-            font-size: 12rem;
+            font-size: clamp(6rem, 20vw, 12rem);
+            /* Dynamic sizing */
             font-weight: 700;
-            margin: 0 0 1rem 0;
-            /* Added bottom margin */
+            margin: 0;
             line-height: 1;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            /* Ensure text is transparent */
             color: transparent;
-            /* Fallback */
             position: relative;
             animation: glitch 2s infinite linear alternate-reverse;
         }
@@ -89,21 +86,28 @@
             }
         }
 
+        h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 5vw, 2.8rem) !important;
+            /* Dynamic sizing */
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
         .message {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            /* Dynamic sizing */
             color: var(--text-secondary);
             max-width: 800px;
-            /* Increased width to prevent wrapping */
-            width: 90%;
-            /* Responsive fallback */
-            margin: 2rem 0 4rem;
-            /* Increased bottom margin for spaciousness */
+            width: 100%;
+            margin: 1rem 0 2rem;
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
         .btn-home {
-            padding: 1rem 2.5rem;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
             background: rgba(88, 166, 255, 0.1);
             border: 1px solid var(--accent-blue);
             color: var(--accent-blue);
@@ -115,8 +119,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
-            margin-bottom: 3rem;
-            /* Add spacing below button */
+            margin-bottom: 0;
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            /* Dynamic button text */
         }
 
         .btn-home:hover {
@@ -127,17 +132,16 @@
         }
 
         footer {
-            margin-top: auto;
-            /* Push to bottom */
-            padding: 2rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            position: absolute;
+            bottom: 0;
             width: 100%;
+            padding: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
             text-align: center;
-            background: var(--card-bg);
-            /* Match homepage footer bg */
-            border-top: 1px solid var(--border-color);
-            /* Match homepage */
+            background: transparent;
+            /* Cleaner look */
+            border: none;
         }
 
         .footer-author {
@@ -156,30 +160,6 @@
         .footer-author:hover,
         .footer-repo:hover {
             color: var(--accent-blue);
-        }
-
-        /* 404 Responsive Fixes */
-        @media (max-width: 768px) {
-            .error-code {
-                font-size: 8rem;
-                /* Reduce size on mobile */
-            }
-
-            .message {
-                font-size: 1.1rem;
-                /* Smaller text */
-                margin: 1.5rem 0 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem !important;
-                /* Force smaller sub-heading */
-            }
-
-            .btn-home {
-                padding: 0.8rem 2rem;
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
