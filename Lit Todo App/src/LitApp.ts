@@ -1,10 +1,11 @@
-import { html, css, LitElement, property } from 'lit-element';
+import { html, css, LitElement } from 'lit';
+import { property } from 'lit/decorators.js';
 
 export class LitApp extends LitElement {
 
   @property({ type: Array }) todos: string[] = [];
 
-  @property({ type: String }) todoText:string = '';
+  @property({ type: String }) todoText: string = '';
 
   connectedCallback() {
     super.connectedCallback();
