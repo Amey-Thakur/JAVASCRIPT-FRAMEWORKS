@@ -17,10 +17,8 @@
     function getApp() {
         const path = window.location.pathname;
         const title = document.title.toLowerCase();
-        // Check exact path match first
         let found = apps.find(app => path.includes(encodeURIComponent(app.path)) || path.includes(app.path));
         if (found) return found;
-        // Fallback to title check (critical for localhost)
         return apps.find(app =>
             title.includes(app.name.toLowerCase().split('.')[0]) ||
             title.includes(app.id)
@@ -62,14 +60,16 @@
     function normalizeFromMaster(appId, masterData) {
         if (!Array.isArray(masterData)) return [];
         if (appId === 'solid') {
-            // Solid expects an array of simple strings
-            return masterData.map(t => typeof t === 'object' ? (t.text || t.title || String(t)) : String(t));
+            return masterData.map(t => typeof t === 'object' ? (t.text || String(t)) : String(t));
         }
         return masterData;
     }
 
-    // Storage Intersection (Prototype-level hook)
+    // Storage Interception (Virtual Storage Bridge)
     const originalSetItem = Storage.prototype.setItem;
+    const originalGetItem = Storage.prototype.getItem;
+
+    // 1. Intercept setItem
     Object.defineProperty(Storage.prototype, 'setItem', {
         value: function (key, value) {
             if (key === KEY_MAP[currentApp.id]) {
@@ -84,17 +84,23 @@
         configurable: true
     });
 
-    // Initial Hydration
-    (function hydrate() {
-        const masterData = localStorage.getItem(MASTER_KEY);
-        if (masterData) {
-            try {
-                const parsed = JSON.parse(masterData);
-                const appSpecific = normalizeFromMaster(currentApp.id, parsed);
-                originalSetItem.call(localStorage, KEY_MAP[currentApp.id], JSON.stringify(appSpecific));
-            } catch (e) { }
-        }
-    })();
+    // 2. Intercept getItem (Definitive Solid Fix)
+    Object.defineProperty(Storage.prototype, 'getItem', {
+        value: function (key) {
+            if (key === KEY_MAP[currentApp.id]) {
+                const masterData = originalGetItem.call(this, MASTER_KEY);
+                if (masterData) {
+                    try {
+                        const parsed = JSON.parse(masterData);
+                        const appSpecific = normalizeFromMaster(currentApp.id, parsed);
+                        return JSON.stringify(appSpecific);
+                    } catch (e) { }
+                }
+            }
+            return originalGetItem.apply(this, arguments);
+        },
+        configurable: true
+    });
 
     // View Transitions Tagging
     function applyTransitions() {
