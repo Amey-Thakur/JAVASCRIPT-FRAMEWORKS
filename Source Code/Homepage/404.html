@@ -39,7 +39,8 @@
             font-family: var(--font-heading);
             font-size: 12rem;
             font-weight: 700;
-            margin: 0;
+            margin: 0 0 1rem 0;
+            /* Added bottom margin */
             line-height: 1;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
@@ -52,40 +53,16 @@
             animation: glitch 2s infinite linear alternate-reverse;
         }
 
-        @keyframes glitch {
-            0% {
-                transform: translate(0);
-                filter: hue-rotate(0deg);
-            }
-
-            20% {
-                transform: translate(-3px, 3px);
-            }
-
-            40% {
-                transform: translate(-3px, -3px);
-                filter: hue-rotate(45deg);
-            }
-
-            60% {
-                transform: translate(3px, 3px);
-            }
-
-            80% {
-                transform: translate(3px, -3px);
-                filter: hue-rotate(-45deg);
-            }
-
-            100% {
-                transform: translate(0);
-            }
-        }
+        /* ... keyframes ... */
 
         .message {
             font-size: 1.5rem;
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 2rem 0 3rem;
+            max-width: 800px;
+            /* Increased width to prevent wrapping */
+            width: 90%;
+            /* Responsive fallback */
+            margin: 1rem 0 3rem;
             font-weight: 300;
             line-height: 1.6;
         }
@@ -161,9 +138,16 @@
 
     <a href="index.html" class="btn-home">Return to Ecosystem</a>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <footer>
-        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank" class="footer-author">Amey Thakur</a> &
-            <a href="https://github.com/msatmod" target="_blank" class="footer-author">Mega Satish</a>
+        <p>Created by <a href="https://github.com/Amey-Thakur"
+                style="text-decoration:none; color:var(--text-primary);">Amey Thakur</a> &
+            <a href="https://github.com/msatmod" style="text-decoration:none; color:var(--text-primary);">Mega
+                Satish</a>
         </p>
     </footer>
 
