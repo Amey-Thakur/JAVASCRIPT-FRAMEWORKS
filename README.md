@@ -155,47 +155,39 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 >
 > The ecosystem utilizes a unified **Virtual Storage Bridge**. If running in "Incognito" or "Private" mode, the cross-framework **"Magic Sync"** may be restricted, preventing the master task list from persisting across framework transitions.
 
----
+### 2. Installation & Setup
 
-### 2. Global Installation
+#### Step 1: Clone the Repository
 Open your terminal and clone the repository to your local environment:
 ```bash
 git clone https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS.git
 cd JAVASCRIPT-FRAMEWORKS-TODO-APPS
 ```
 
----
+#### Step 2: Framework Selection
+Navigate to any of the 10 framework implementations within the **Source Code** directory:
+```bash
+cd "Source Code/[Framework App Name]"
+```
+
+#### Step 3: Install Core Dependencies
+Synchronize the local environment with the mission requirements:
+```bash
+npm install
+```
 
 ### 3. Execution Protocols
-The repository is divided into two technical tiers. Follow the protocol corresponding to the framework implementation you wish to explore:
+Launch the active development server according to the framework's protocol:
 
-#### Tier A: High-Performance Frameworks
-*Includes: **React, Vue, Svelte, Solid, Lit, Mithril, Alpine, Vanilla***
+**Tier A (High-Performance)**: `React, Vue, Svelte, Solid, Lit, Mithril, Alpine, Vanilla`
+```bash
+npm run dev
+```
 
-1.  Navigate to the specific implementation:
-    ```bash
-    cd "Source Code/[Framework App Name]"
-    ```
-2.  Install dependencies and launch the dev server:
-    ```bash
-    npm install
-    npm run dev
-    ```
-
-#### Tier B: Enterprise & Compiler-Based
-*Includes: **Angular, Stencil***
-
-1.  Navigate to the implementation:
-    ```bash
-    cd "Source Code/[Framework App Name]"
-    ```
-2.  Install dependencies and launch the server:
-    ```bash
-    npm install
-    npm run start
-    ```
-
----
+**Tier B (Enterprise/Compiler)**: `Angular, Stencil`
+```bash
+npm run start
+```
 
 ### 4. Interactive Portal (Central Hub)
 To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
@@ -206,6 +198,21 @@ To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
     cd "Source Code/Homepage"
     ```
 3.  Open `index.html` in your browser (utilizing a local server like **Live Server** for full functionality).
+
+### 5. Benchmark Reference Table
+
+| Implementation | Type | Command | Port |
+|----------------|------|---------|------|
+| **React** | Virtual DOM | `npm run dev` | 5173 |
+| **Vue** | Reactive Proxy | `npm run dev` | 5173 |
+| **Svelte** | Compiled | `npm run dev` | 5173 |
+| **Solid** | Fine-grained | `npm run dev` | 5173 |
+| **Lit** | Web Components | `npm run dev` | 5173 |
+| **Angular** | Enterprise | `npm run start` | 3002 |
+| **Stencil** | Compiler | `npm run start` | 3007 |
+| **Alpine** | Rugged | `npm run dev` | 5173 |
+| **Mithril** | Tiny VDOM | `npm run dev` | 5173 |
+| **Vanilla** | Native | `npm run dev` | 5173 |
 
 ---
 
