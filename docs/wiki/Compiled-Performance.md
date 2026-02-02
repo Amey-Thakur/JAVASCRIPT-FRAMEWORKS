@@ -11,8 +11,8 @@ This study analyzes frameworks that shift the burden of reactivity from the brow
 
 | Framework | Optimization Strategy | Source Code | Live Demo |
 | :--- | :--- | :--- | :--- |
-| **Svelte** | The Cybernetic Compiler | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Svelte%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/) |
-| **Stencil** | Web Component Generator | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Stencil%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/) |
+| **Svelte** | The Cybernetic Compiler | [Source](../../Source%20Code/Svelte%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/) |
+| **Stencil** | Web Component Generator | [Source](../../Source%20Code/Stencil%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/) |
 
 ---
 

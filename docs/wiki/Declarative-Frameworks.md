@@ -11,9 +11,9 @@ This entry explores the implementation patterns of the three primary declarative
 
 | Framework | Reactivity Model | Source Code | Live Demo |
 | :--- | :--- | :--- | :--- |
-| **React** | Virtual DOM Reconciliation | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/React%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/) |
-| **Solid** | Fine-grained Signal Tracking | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Solid%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/) |
-| **Vue** | Direct Proxy Observation | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Vue%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/) |
+| **React** | Virtual DOM Reconciliation | [Source](../../Source%20Code/React%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/) |
+| **Solid** | Fine-grained Signal Tracking | [Source](../../Source%20Code/Solid%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/) |
+| **Vue** | Direct Proxy Observation | [Source](../../Source%20Code/Vue%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/) |
 
 ---
 

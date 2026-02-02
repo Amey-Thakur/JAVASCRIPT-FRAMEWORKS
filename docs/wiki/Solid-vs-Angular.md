@@ -13,7 +13,7 @@ This specialized comparison analyzes the divergent REACTIVE philosophies of **So
 | :--- | :--- | :--- |
 | **Update Mechanism** | Proactive Signal Graph | Managed Service Layer |
 | **DOM Synchronization** | Direct Atomic Operations | Hierarchical Change Detection |
-| **Source Code** | [View Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Solid%20Todo%20App/) | [View Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Angular%20Todo%20App/) |
+| **Source Code** | [View Source](../../Source%20Code/Solid%20Todo%20App/) | [View Source](../../Source%20Code/Angular%20Todo%20App/) |
 | **Live Demo** | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/) |
 
 ---

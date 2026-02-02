@@ -11,8 +11,8 @@ Native foundations represent the baseline for all performance and architectural 
 
 | Implementation | Standard Alignment | Source Code | Live Demo |
 | :--- | :--- | :--- | :--- |
-| **Vanilla JS** | Pure ECMAScript & DOM | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Vanilla%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/) |
-| **Lit** | Custom Elements Standard | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Lit%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/) |
+| **Vanilla JS** | Pure ECMAScript & DOM | [Source](../../Source%20Code/Vanilla%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/) |
+| **Lit** | Custom Elements Standard | [Source](../../Source%20Code/Lit%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/) |
 
 ---
 

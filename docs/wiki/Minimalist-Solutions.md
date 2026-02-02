@@ -11,8 +11,8 @@ This entry examines implementations that prioritize a minimal footprint and "Rug
 
 | Framework | Architectural Paradigm | Source Code | Live Demo |
 | :--- | :--- | :--- | :--- |
-| **Alpine.js** | Decentralized Markup | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Alpine%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/) |
-| **Mithril** | Unified MVC Architecture | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Mithril%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/) |
+| **Alpine.js** | Decentralized Markup | [Source](../../Source%20Code/Alpine%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/) |
+| **Mithril** | Unified MVC Architecture | [Source](../../Source%20Code/Mithril%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/) |
 
 ---
 

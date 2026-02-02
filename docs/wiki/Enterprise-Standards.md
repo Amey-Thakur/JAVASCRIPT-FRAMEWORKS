@@ -11,7 +11,7 @@ This entry analyzes **Angular** as the definitive "Opinionated Platform" within 
 
 | Framework | Architectural Role | Source Code | Live Demo |
 | :--- | :--- | :--- | :--- |
-| **Angular** | Enterprise Management | [Source](file:///d:/GitHub/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Source%20Code/Angular%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/) |
+| **Angular** | Enterprise Management | [Source](../../Source%20Code/Angular%20Todo%20App/) | [🚀 Launch App](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/) |
 
 ---
 
