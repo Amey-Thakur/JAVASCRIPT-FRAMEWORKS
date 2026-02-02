@@ -65,9 +65,8 @@ jobs:
           npm run build
           mkdir -p "../../_site/Alpine Todo App"
           cp -r dist/* "../../_site/Alpine Todo App/"
-          # Inject Shell (Head for CSS, Body for Script)
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Alpine Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Alpine Todo App/index.html"
+          # Inject Shell (Head for CSS & Script)
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Alpine Todo App/index.html"
 
       # Build Angular
       - name: Build Angular
@@ -77,9 +76,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Angular Todo App"
           cp -r dist/angular-todo-app/browser/* "../../_site/Angular Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Angular Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Angular Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Angular Todo App/index.html"
 
       # Build Lit
       - name: Build Lit
@@ -89,9 +86,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Lit Todo App"
           cp -r dist/* "../../_site/Lit Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Lit Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Lit Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Lit Todo App/index.html"
 
       # Build Mithril
       - name: Build Mithril
@@ -101,9 +96,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Mithril Todo App"
           cp -r dist/* "../../_site/Mithril Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Mithril Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Mithril Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Mithril Todo App/index.html"
 
       # Build React
       - name: Build React
@@ -113,9 +106,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/React Todo App"
           cp -r dist/* "../../_site/React Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/React Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/React Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/React Todo App/index.html"
 
       # Build Solid
       - name: Build Solid
@@ -125,9 +116,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Solid Todo App"
           cp -r dist/* "../../_site/Solid Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Solid Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Solid Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Solid Todo App/index.html"
 
       # Build Stencil
       - name: Build Stencil
@@ -142,9 +131,7 @@ jobs:
           # Fix absolute paths in Stencil's index.html
           sed -i 's|src="/build/|src="build/|g' "../../_site/Stencil Todo App/index.html"
           sed -i 's|href="/assets/|href="assets/|g' "../../_site/Stencil Todo App/index.html"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Stencil Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Stencil Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Stencil Todo App/index.html"
 
       # Build Svelte
       - name: Build Svelte
@@ -154,9 +141,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Svelte Todo App"
           cp -r dist/* "../../_site/Svelte Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Svelte Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Svelte Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Svelte Todo App/index.html"
 
       # Build Vanilla
       - name: Build Vanilla
@@ -166,9 +151,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Vanilla Todo App"
           cp -r dist/* "../../_site/Vanilla Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Vanilla Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Vanilla Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Vanilla Todo App/index.html"
 
       # Build Vue
       - name: Build Vue
@@ -178,9 +161,7 @@ jobs:
           npm run build
           mkdir -p "../../_site/Vue Todo App"
           cp -r dist/* "../../_site/Vue Todo App/"
-          # Inject Shell
-          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"></head>|g' "../../_site/Vue Todo App/index.html"
-          sed -i 's|</body>|<script src="../_portal/shell/shell.js" defer></script></body>|g' "../../_site/Vue Todo App/index.html"
+          sed -i 's|</head>|<link rel="stylesheet" href="../_portal/shell/shell.css"><script src="../_portal/shell/shell.js"></script></head>|g' "../../_site/Vue Todo App/index.html"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

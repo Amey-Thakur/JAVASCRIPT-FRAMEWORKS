@@ -13,14 +13,16 @@
         { id: 'vue', name: 'Vue', path: 'Vue Todo App', logo: 'vue.png', color: '#42b883', desc: 'The Progressive JavaScript Framework. Vue is designed to be incrementally adoptable, focusing on the view layer only, making it easy to pick up and integrate with other libraries or existing projects while also being capable of powering sophisticated SPAs.' }
     ];
 
-    // Identify Current App (Robust detection)
+    // Identify Current App (Ultra-robust detection)
     function getApp() {
         const path = window.location.pathname;
         const title = document.title.toLowerCase();
+        // Check exact path match first
+        let found = apps.find(app => path.includes(encodeURIComponent(app.path)) || path.includes(app.path));
+        if (found) return found;
+        // Fallback to title check (critical for localhost)
         return apps.find(app =>
-            path.includes(encodeURIComponent(app.path)) ||
-            path.includes(app.path) ||
-            title.includes(app.name.toLowerCase().split('.')[0]) || // e.g. 'react' in 'React Todo App'
+            title.includes(app.name.toLowerCase().split('.')[0]) ||
             title.includes(app.id)
         );
     }
@@ -50,7 +52,7 @@
         return data.map((t, i) => {
             const isObj = t && typeof t === 'object';
             return {
-                id: (isObj && (t.id || t.timestamp)) || Date.now() + i,
+                id: (isObj && (t.id || t.timestamp)) || (Date.now() + i),
                 text: (isObj ? (t.text || t.title || t.content) : String(t)) || '',
                 completed: isObj ? !!t.completed : false
             };
@@ -58,11 +60,15 @@
     }
 
     function normalizeFromMaster(appId, masterData) {
-        if (appId === 'solid') return masterData.map(t => t.text);
+        if (!Array.isArray(masterData)) return [];
+        if (appId === 'solid') {
+            // Solid expects an array of simple strings
+            return masterData.map(t => typeof t === 'object' ? (t.text || t.title || String(t)) : String(t));
+        }
         return masterData;
     }
 
-    // Storage Intersection (Robust Sync)
+    // Storage Intersection (Prototype-level hook)
     const originalSetItem = Storage.prototype.setItem;
     Object.defineProperty(Storage.prototype, 'setItem', {
         value: function (key, value) {
@@ -124,7 +130,6 @@
         const root = document.createElement('div');
         root.id = 'gallery-shell-root';
 
-        // Components Generation
         const overlay = document.createElement('div');
         overlay.className = 'gallery-shell-overlay';
         overlay.innerHTML = `
@@ -168,7 +173,6 @@
         root.appendChild(modal);
         root.appendChild(palette);
 
-        // UI Logic
         const searchInput = palette.querySelector('#shell-search-input');
         const resultsList = palette.querySelector('#shell-results');
         let selectedIndex = 0;
@@ -216,7 +220,6 @@
             });
         };
 
-        // UI Listeners
         document.getElementById('shell-prev').onclick = () => navigate(prevApp);
         document.getElementById('shell-next').onclick = () => navigate(nextApp);
         document.getElementById('shell-info').onclick = toggleModal;
@@ -258,7 +261,6 @@
         });
     }
 
-    // FontAwesome Check
     if (!document.querySelector('link[href*="font-awesome"]')) {
         const fa = document.createElement('link');
         fa.rel = 'stylesheet';
