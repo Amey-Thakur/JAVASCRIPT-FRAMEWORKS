@@ -203,16 +203,16 @@ To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
 
 | Implementation | Type | Command | Port |
 |----------------|------|---------|------|
-| **React** | Virtual DOM | `npm run dev` | 5173 |
-| **Vue** | Reactive Proxy | `npm run dev` | 5173 |
-| **Svelte** | Compiled | `npm run dev` | 5173 |
-| **Solid** | Fine-grained | `npm run dev` | 5173 |
-| **Lit** | Web Components | `npm run dev` | 5173 |
+| **Alpine** | Rugged | `npm run dev` | 3001 |
 | **Angular** | Enterprise | `npm run start` | 3002 |
+| **Lit** | Web Components | `npm run dev` | 3003 |
+| **Mithril** | Tiny VDOM | `npm run dev` | 3004 |
+| **React** | Virtual DOM | `npm run dev` | 3005 |
+| **Solid** | Fine-grained | `npm run dev` | 3006 |
 | **Stencil** | Compiler | `npm run start` | 3007 |
-| **Alpine** | Rugged | `npm run dev` | 5173 |
-| **Mithril** | Tiny VDOM | `npm run dev` | 5173 |
-| **Vanilla** | Native | `npm run dev` | 5173 |
+| **Svelte** | Compiled | `npm run dev` | 3008 |
+| **Vanilla** | Native | `npm run dev` | 3009 |
+| **Vue** | Reactive Proxy | `npm run dev` | 3010 |
 
 ---
 <a name="usage-guidelines"></a>
