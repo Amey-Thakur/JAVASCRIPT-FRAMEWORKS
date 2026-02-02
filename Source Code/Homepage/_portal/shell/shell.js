@@ -36,8 +36,8 @@
         'angular': 'angular-todos',
         'lit': 'lit-todos',
         'mithril': 'mithril-todos',
-        'react': 'react-todos',
-        'solid': 'todos',
+        'react': 'todos',
+        'solid': 'solid-todos',
         'stencil': 'stencil-todos',
         'svelte': 'svelte-todos',
         'vanilla': 'vanilla-todos',
@@ -50,7 +50,7 @@
         return data.map((t, i) => {
             const isObj = t && typeof t === 'object';
             return {
-                id: (isObj && (t.id || t.timestamp)) || (Date.now() + i),
+                id: (isObj && t.id) || (Date.now() + i),
                 text: (isObj ? (t.text || t.title || t.content) : String(t)) || '',
                 completed: isObj ? !!t.completed : false
             };
@@ -59,15 +59,19 @@
 
     function normalizeFromMaster(appId, masterData) {
         if (!Array.isArray(masterData)) return [];
-        if (appId === 'solid') {
+        if (appId === 'react') {
+            // React expects a simple array of strings
             return masterData.map(t => typeof t === 'object' ? (t.text || String(t)) : String(t));
         }
+        // All other apps expect { id, text, completed }
         return masterData;
     }
 
     // Storage Interception (Virtual Storage Bridge)
     const originalSetItem = Storage.prototype.setItem;
     const originalGetItem = Storage.prototype.getItem;
+    const originalRemoveItem = Storage.prototype.removeItem;
+    const originalClear = Storage.prototype.clear;
 
     // 1. Intercept setItem
     Object.defineProperty(Storage.prototype, 'setItem', {
@@ -84,7 +88,7 @@
         configurable: true
     });
 
-    // 2. Intercept getItem (Definitive Solid Fix)
+    // 2. Intercept getItem (Definitive Framework Bridge)
     Object.defineProperty(Storage.prototype, 'getItem', {
         value: function (key) {
             if (key === KEY_MAP[currentApp.id]) {
@@ -98,6 +102,26 @@
                 }
             }
             return originalGetItem.apply(this, arguments);
+        },
+        configurable: true
+    });
+
+    // 3. Intercept removeItem
+    Object.defineProperty(Storage.prototype, 'removeItem', {
+        value: function (key) {
+            if (key === KEY_MAP[currentApp.id]) {
+                originalRemoveItem.call(this, MASTER_KEY);
+            }
+            return originalRemoveItem.apply(this, arguments);
+        },
+        configurable: true
+    });
+
+    // 4. Intercept clear
+    Object.defineProperty(Storage.prototype, 'clear', {
+        value: function () {
+            originalClear.call(this);
+            originalRemoveItem.call(this, MASTER_KEY);
         },
         configurable: true
     });
