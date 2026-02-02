@@ -41,8 +41,21 @@ jobs:
           cp -r "Source Code/Homepage/_portal" _site/
           cp -r "Source Code/Homepage/Mega" _site/
           
-          # Fix relative links for deployment (../App -> ./App)
+          # Fix relative links for deployment
+          # 1. Remove ../ prefix
           sed -i 's|href="\.\./|href="|g' _site/index.html
+          
+          # 2. Fix specific app paths (remove dist/, www/, etc.) to match deployed structure
+          sed -i 's|Alpine Todo App/dist/|Alpine Todo App/|g' _site/index.html
+          sed -i 's|Angular Todo App/dist/angular-todo-app/browser/|Angular Todo App/|g' _site/index.html
+          sed -i 's|Lit Todo App/dist/|Lit Todo App/|g' _site/index.html
+          sed -i 's|Mithril Todo App/dist/|Mithril Todo App/|g' _site/index.html
+          sed -i 's|React Todo App/dist/|React Todo App/|g' _site/index.html
+          sed -i 's|Solid Todo App/dist/|Solid Todo App/|g' _site/index.html
+          sed -i 's|Stencil Todo App/www/|Stencil Todo App/|g' _site/index.html
+          sed -i 's|Svelte Todo App/dist/|Svelte Todo App/|g' _site/index.html
+          sed -i 's|Vanilla Todo App/dist/|Vanilla Todo App/|g' _site/index.html
+          sed -i 's|Vue Todo App/dist/|Vue Todo App/|g' _site/index.html
 
       # Build Alpine
       - name: Build Alpine
