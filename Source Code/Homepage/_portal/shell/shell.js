@@ -13,81 +13,131 @@
         { id: 'vue', name: 'Vue', path: 'Vue Todo App', logo: 'vue.png', color: '#42b883', desc: 'The Progressive JavaScript Framework. Vue is designed to be incrementally adoptable, focusing on the view layer only, making it easy to pick up and integrate with other libraries or existing projects while also being capable of powering sophisticated SPAs.' }
     ];
 
-    // Determine current app
+    // Identify Current App
     const currentPath = window.location.pathname;
     const currentIndex = apps.findIndex(app => currentPath.includes(encodeURIComponent(app.path)) || currentPath.includes(app.path));
-
-    if (currentIndex === -1) return; // Not in a recognized app
-
+    if (currentIndex === -1) return;
     const currentApp = apps[currentIndex];
 
-    // Apply theme color
+    // State Sync Configuration
+    const MASTER_KEY = 'universal-todo-master';
+    const KEY_MAP = {
+        'alpine': 'todos',
+        'angular': 'angular-todos',
+        'lit': 'lit-todos',
+        'mithril': 'mithril-todos',
+        'react': 'react-todos',
+        'solid': 'todos',
+        'stencil': 'stencil-todos',
+        'svelte': 'svelte-todos',
+        'vanilla': 'vanilla-todos',
+        'vue': 'vue-todos'
+    };
+
+    // Data Normalization Utilities
+    function normalizeToMaster(appId, data) {
+        if (!Array.isArray(data)) return [];
+        if (appId === 'solid') {
+            return data.map((t, i) => ({ id: Date.now() + i, text: String(t), completed: false }));
+        }
+        return data.map(t => ({
+            id: t.id || Date.now() + Math.random(),
+            text: t.text || t.title || '',
+            completed: !!t.completed
+        }));
+    }
+
+    function normalizeFromMaster(appId, masterData) {
+        if (appId === 'solid') return masterData.map(t => t.text);
+        return masterData;
+    }
+
+    // Storage Intersection (Zero-Touch Sync)
+    const originalSetItem = localStorage.setItem;
+    localStorage.setItem = function (key, value) {
+        if (key === KEY_MAP[currentApp.id]) {
+            try {
+                const data = JSON.parse(value);
+                const normalized = normalizeToMaster(currentApp.id, data);
+                originalSetItem.call(localStorage, MASTER_KEY, JSON.stringify(normalized));
+            } catch (e) { }
+        }
+        originalSetItem.apply(this, arguments);
+    };
+
+    // Initial Hydration
+    (function hydrate() {
+        const masterData = localStorage.getItem(MASTER_KEY);
+        if (masterData) {
+            try {
+                const parsed = JSON.parse(masterData);
+                const appSpecific = normalizeFromMaster(currentApp.id, parsed);
+                originalSetItem.call(localStorage, KEY_MAP[currentApp.id], JSON.stringify(appSpecific));
+            } catch (e) {
+                console.error("Sync Hydration Error", e);
+            }
+        }
+    })();
+
+    // UI State & Variables
     document.documentElement.style.setProperty('--shell-accent', currentApp.color);
     const prevApp = apps[(currentIndex - 1 + apps.length) % apps.length];
     const nextApp = apps[(currentIndex + 1) % apps.length];
 
-    // Wait for framework to mount and then inject
     function initShell() {
-        // Mithril and others might clear the body on mount. 
-        // We wait a bit and then check if we need to re-inject or if we can inject now.
         const inject = () => {
             if (document.getElementById('gallery-shell-root')) return;
             createUI();
         };
 
-        // Initial check
-        if (document.readyState === 'complete') {
-            setTimeout(inject, 500); // Give Mithril/React time to mount
-        } else {
-            window.addEventListener('load', () => setTimeout(inject, 500));
-        }
+        if (document.readyState === 'complete') setTimeout(inject, 500);
+        else window.addEventListener('load', () => setTimeout(inject, 500));
 
-        // MutationObserver to ensure we stay there if the body is cleared again
         const observer = new MutationObserver(() => {
-            if (!document.getElementById('gallery-shell-root')) {
-                inject();
-            }
+            if (!document.getElementById('gallery-shell-root')) inject();
         });
         observer.observe(document.body, { childList: true });
     }
 
-    // UI Injection
     function createUI() {
         const root = document.createElement('div');
         root.id = 'gallery-shell-root';
 
-        // Overlay HTML
+        // Components Generation
         const overlay = document.createElement('div');
         overlay.className = 'gallery-shell-overlay';
         overlay.innerHTML = `
-            <button class="shell-btn" id="shell-prev" title="Previous Framework (Left Arrow)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <a href="../" class="shell-btn" title="Back to Portal (H)">
-                <i class="fas fa-home"></i>
-            </a>
-            <button class="shell-btn" id="shell-info" title="Framework Info (I)">
-                <i class="fas fa-info"></i>
-            </button>
-            <button class="shell-btn" id="shell-next" title="Next Framework (Right Arrow)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <button class="shell-btn" id="shell-prev" title="Previous (Left Arrow)"><i class="fas fa-chevron-left"></i></button>
+            <a href="../" class="shell-btn" title="Home (H)"><i class="fas fa-home"></i></a>
+            <button class="shell-btn" id="shell-info" title="Info (I)"><i class="fas fa-info"></i></button>
+            <button class="shell-btn" id="shell-next" title="Next (Right Arrow)"><i class="fas fa-chevron-right"></i></button>
         `;
 
-        // Modal HTML
         const modalOverlay = document.createElement('div');
         modalOverlay.className = 'shell-modal-overlay';
-
         const modal = document.createElement('div');
         modal.className = 'shell-info-modal';
         modal.innerHTML = `
             <button class="shell-modal-close" id="shell-modal-close">&times;</button>
             <div class="shell-info-header">
-                <img src="../_portal/logos/${currentApp.logo}" class="shell-info-logo" alt="${currentApp.name} Logo">
+                <img src="../_portal/logos/${currentApp.logo}" class="shell-info-logo" alt="Logo">
                 <h2 class="shell-info-title">${currentApp.name}</h2>
             </div>
-            <div class="shell-info-body">
-                <p>${currentApp.desc}</p>
+            <div class="shell-info-body"><p>${currentApp.desc}</p></div>
+        `;
+
+        const palette = document.createElement('div');
+        palette.className = 'shell-command-palette';
+        palette.innerHTML = `
+            <div class="shell-search-wrapper">
+                <i class="fas fa-search shell-search-icon"></i>
+                <input type="text" id="shell-search-input" placeholder="Jump to framework... (Search)" autocomplete="off">
+            </div>
+            <div class="shell-results-list" id="shell-results"></div>
+            <div class="shell-palette-footer">
+                <span><span class="shell-kbd">↑↓</span> to navigate</span>
+                <span><span class="shell-kbd">Enter</span> to select</span>
+                <span><span class="shell-kbd">Esc</span> to close</span>
             </div>
         `;
 
@@ -95,51 +145,92 @@
         root.appendChild(overlay);
         root.appendChild(modalOverlay);
         root.appendChild(modal);
+        root.appendChild(palette);
 
-        // Events
-        const navigate = (app) => {
-            window.location.href = `../${app.path}/`;
-        };
+        // UI Logic
+        const searchInput = palette.querySelector('#shell-search-input');
+        const resultsList = palette.querySelector('#shell-results');
+        let selectedIndex = 0;
+        let filteredApps = [...apps];
 
-        document.getElementById('shell-prev').onclick = () => navigate(prevApp);
-        document.getElementById('shell-next').onclick = () => navigate(nextApp);
-
+        const navigate = (app) => window.location.href = `../${app.path}/`;
         const toggleModal = () => {
             modal.classList.toggle('active');
             modalOverlay.classList.toggle('active');
         };
 
+        const togglePalette = (forceClose = false) => {
+            if (palette.classList.contains('active') || forceClose) {
+                palette.classList.remove('active');
+                searchInput.blur();
+            } else {
+                palette.classList.add('active');
+                searchInput.value = '';
+                renderResults('');
+                setTimeout(() => searchInput.focus(), 100);
+            }
+        };
+
+        const renderResults = (query) => {
+            filteredApps = apps.filter(app =>
+                app.name.toLowerCase().includes(query.toLowerCase()) ||
+                app.desc.toLowerCase().includes(query.toLowerCase())
+            );
+            selectedIndex = 0;
+            updateResultsUI();
+        };
+
+        const updateResultsUI = () => {
+            resultsList.innerHTML = filteredApps.map((app, i) => `
+                <div class="shell-result-item ${i === selectedIndex ? 'selected' : ''}" data-index="${i}" style="--shell-accent: ${app.color}">
+                    <img src="../_portal/logos/${app.logo}" class="shell-result-logo">
+                    <div class="shell-result-info">
+                        <div class="shell-result-name">${app.name}</div>
+                        <div class="shell-result-meta">${app.id === currentApp.id ? 'Currently Viewing' : 'Framework'}</div>
+                    </div>
+                </div>
+            `).join('');
+            resultsList.querySelectorAll('.shell-result-item').forEach(item => {
+                item.onclick = () => navigate(filteredApps[item.dataset.index]);
+            });
+        };
+
+        // UI Listeners
+        document.getElementById('shell-prev').onclick = () => navigate(prevApp);
+        document.getElementById('shell-next').onclick = () => navigate(nextApp);
         document.getElementById('shell-info').onclick = toggleModal;
         document.getElementById('shell-modal-close').onclick = toggleModal;
         modalOverlay.onclick = toggleModal;
+        searchInput.oninput = (e) => renderResults(e.target.value);
 
-        // Keyboard Shortcuts
         document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                togglePalette();
+                return;
+            }
+
+            if (palette.classList.contains('active')) {
+                if (e.key === 'Escape') togglePalette(true);
+                else if (e.key === 'ArrowDown') { selectedIndex = (selectedIndex + 1) % filteredApps.length; updateResultsUI(); }
+                else if (e.key === 'ArrowUp') { selectedIndex = (selectedIndex - 1 + filteredApps.length) % filteredApps.length; updateResultsUI(); }
+                else if (e.key === 'Enter' && filteredApps[selectedIndex]) navigate(filteredApps[selectedIndex]);
+                return;
+            }
+
             if (modal.classList.contains('active')) {
                 if (e.key === 'Escape') toggleModal();
                 return;
             }
 
-            switch (e.key) {
-                case 'ArrowLeft':
-                    navigate(prevApp);
-                    break;
-                case 'ArrowRight':
-                    navigate(nextApp);
-                    break;
-                case 'i':
-                case 'I':
-                    toggleModal();
-                    break;
-                case 'h':
-                case 'H':
-                    window.location.href = '../';
-                    break;
-            }
+            if (e.key === 'ArrowLeft') navigate(prevApp);
+            else if (e.key === 'ArrowRight') navigate(nextApp);
+            else if (e.key.toLowerCase() === 'i') toggleModal();
+            else if (e.key.toLowerCase() === 'h') window.location.href = '../';
         });
     }
 
-    // Load FontAwesome if not present
+    // FontAwesome Check
     if (!document.querySelector('link[href*="font-awesome"]')) {
         const fa = document.createElement('link');
         fa.rel = 'stylesheet';
