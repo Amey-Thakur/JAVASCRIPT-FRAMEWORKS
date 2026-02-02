@@ -15,6 +15,27 @@
 </head>
 
 <body>
+    <!-- Premium Splash Loader -->
+    <div id="skeleton-loader">
+        <div class="loader-content">
+            <div class="loader-r-wrapper">
+                <div class="loader-r-icon" id="splash-r-icon">
+                    <i class="fas fa-layer-group" style="font-size: 4rem; color: var(--accent-blue);"></i>
+                </div>
+                <div class="loader-progress-container">
+                    <div id="splash-progress-bar"></div>
+                </div>
+            </div>
+            <p class="loader-text pulse-text">Initializing JS Frameworks...</p>
+        </div>
+        <footer class="splash-footer">
+            <p>Created by <a href="https://github.com/Amey-Thakur"
+                    style="text-decoration:none; color:var(--text-primary);">Amey Thakur</a> &
+                <a href="https://github.com/msatmod" style="text-decoration:none; color:var(--text-primary);">Mega
+                    Satish</a>
+            </p>
+        </footer>
+    </div>
 
     <!-- Top Controls -->
     <div class="top-controls">
@@ -276,6 +297,17 @@
                 }
                 if (sequence.length > 20) sequence = sequence.substring(sequence.length - 20);
             });
+            // 5. Loading Screen Logic
+            const loader = document.getElementById('skeleton-loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.visibility = 'hidden';
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 800);
+                }, 2500); // 2.5s loading time
+            }
         })();
     </script>
 </body>
