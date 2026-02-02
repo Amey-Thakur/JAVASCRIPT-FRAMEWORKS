@@ -106,7 +106,9 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 │   └── Mega.png                     # Profile Image (Mega Satish)
 │
 ├── screenshots/                     # Visual Gallery
-│   └── [Pending Upload]             # To be provided by user
+│   ├── homepage.png                 # Portal Hub Interface
+│   ├── react.png                    # Framework Implementation
+│   └── [10 Framework Screenshots]   # Implementation Benchmarks
 │
 ├── Source Code/                     # Multicentric Application Layer
 │   ├── Homepage/                    # Deployment Portal & shell.js
@@ -131,18 +133,7 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 ---
 
 <a name="results"></a>
-## Results
-
-<div align="center">
-  <b>[Screenshots Pending]</b>
-  <br>
-  <i>The visual gallery will be updated once the GitHub server stabilization allows for asset synchronization.</i>
-</div>
-
----
-
 <!-- RESULTS -->
-<a name="results"></a>
 ## Results
 
 The following implementation gallery showcases the visual consistency and high-fidelity UI maintained across all 10 JavaScript frameworks. Every application utilizes the **"Magic Sync" Virtual Storage Bridge** to ensure real-time data persistence during framework transitions.
