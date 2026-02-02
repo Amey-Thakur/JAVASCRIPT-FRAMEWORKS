@@ -126,8 +126,8 @@ jobs:
           npm install --legacy-peer-deps
           npm run build
           mkdir -p "../../_site/Stencil Todo App"
-          # Copy from the nested folder (now with fixed name)
-          cp -r "www/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil Todo App/"* "../../_site/Stencil Todo App/"
+          # Copy from the standard www folder
+          cp -r www/* "../../_site/Stencil Todo App/"
           
           # Fix absolute paths in Stencil's index.html
           sed -i 's|src="/build/|src="build/|g' "../../_site/Stencil Todo App/index.html"
