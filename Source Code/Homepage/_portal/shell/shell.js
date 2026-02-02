@@ -16,16 +16,44 @@
     // Identify Current App (Ultra-robust detection)
     function getApp() {
         const path = window.location.pathname;
-        const title = document.title.toLowerCase();
+        const title = document.title ? document.title.toLowerCase() : "";
+
+        // 1. Path Match (Highest Priority)
         let found = apps.find(app => path.includes(encodeURIComponent(app.path)) || path.includes(app.path));
         if (found) return found;
-        return apps.find(app =>
-            title.includes(app.name.toLowerCase().split('.')[0]) ||
-            title.includes(app.id)
-        );
+
+        // 2. DOM signature match (Critical for Localhost / Late Detection)
+        if (document.querySelector('[x-data]')) return apps.find(a => a.id === 'alpine');
+        if (document.querySelector('app-root')) return apps.find(a => a.id === 'angular');
+        if (document.querySelector('todo-app')) return apps.find(a => a.id === 'lit');
+        if (document.body && document.body.innerHTML.includes('svelte-')) return apps.find(a => a.id === 'svelte');
+
+        // 3. Title Fallback
+        if (title) {
+            found = apps.find(app =>
+                title.includes(app.name.toLowerCase().split('.')[0]) ||
+                title.includes(app.id)
+            );
+            if (found) return found;
+        }
+
+        return null;
     }
-    const currentApp = getApp();
-    if (!currentApp) return;
+
+    // Initial Detection
+    let currentApp = getApp();
+
+    // Dynamic Re-detection (Late binding)
+    function ensureApp() {
+        if (!currentApp) {
+            currentApp = getApp();
+            if (currentApp) {
+                console.log(`%c [Shell] Late Detection: ${currentApp.name} `, `background: ${currentApp.color}; color: white; border-radius: 3px; font-weight: bold;`);
+                document.documentElement.style.setProperty('--shell-accent', currentApp.color);
+            }
+        }
+        return currentApp;
+    }
 
     const currentIndex = apps.indexOf(currentApp);
 
@@ -76,10 +104,11 @@
     // 1. Intercept setItem
     Object.defineProperty(Storage.prototype, 'setItem', {
         value: function (key, value) {
-            if (key === KEY_MAP[currentApp.id]) {
+            const app = ensureApp();
+            if (app && key === KEY_MAP[app.id]) {
                 try {
                     const data = JSON.parse(value);
-                    const normalized = normalizeToMaster(currentApp.id, data);
+                    const normalized = normalizeToMaster(app.id, data);
                     originalSetItem.call(this, MASTER_KEY, JSON.stringify(normalized));
                 } catch (e) { }
             }
@@ -91,12 +120,13 @@
     // 2. Intercept getItem (Definitive Framework Bridge)
     Object.defineProperty(Storage.prototype, 'getItem', {
         value: function (key) {
-            if (key === KEY_MAP[currentApp.id]) {
+            const app = ensureApp();
+            if (app && key === KEY_MAP[app.id]) {
                 const masterData = originalGetItem.call(this, MASTER_KEY);
                 if (masterData) {
                     try {
                         const parsed = JSON.parse(masterData);
-                        const appSpecific = normalizeFromMaster(currentApp.id, parsed);
+                        const appSpecific = normalizeFromMaster(app.id, parsed);
                         return JSON.stringify(appSpecific);
                     } catch (e) { }
                 }
@@ -109,7 +139,8 @@
     // 3. Intercept removeItem
     Object.defineProperty(Storage.prototype, 'removeItem', {
         value: function (key) {
-            if (key === KEY_MAP[currentApp.id]) {
+            const app = ensureApp();
+            if (app && key === KEY_MAP[app.id]) {
                 originalRemoveItem.call(this, MASTER_KEY);
             }
             return originalRemoveItem.apply(this, arguments);
@@ -120,8 +151,9 @@
     // 4. Intercept clear
     Object.defineProperty(Storage.prototype, 'clear', {
         value: function () {
+            const app = ensureApp();
             originalClear.call(this);
-            originalRemoveItem.call(this, MASTER_KEY);
+            if (app) originalRemoveItem.call(this, MASTER_KEY);
         },
         configurable: true
     });
@@ -136,11 +168,16 @@
     }
 
     // UI State & Variables
-    document.documentElement.style.setProperty('--shell-accent', currentApp.color);
-    const prevApp = apps[(currentIndex - 1 + apps.length) % apps.length];
-    const nextApp = apps[(currentIndex + 1) % apps.length];
+    if (currentApp) document.documentElement.style.setProperty('--shell-accent', currentApp.color);
 
     function initShell() {
+        const app = ensureApp();
+        if (!app) return;
+
+        const currentIndex = apps.indexOf(app);
+        const prevApp = apps[(currentIndex - 1 + apps.length) % apps.length];
+        const nextApp = apps[(currentIndex + 1) % apps.length];
+
         const inject = () => {
             if (document.getElementById('gallery-shell-root')) return;
             createUI();
