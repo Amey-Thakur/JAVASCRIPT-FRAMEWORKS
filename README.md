@@ -73,8 +73,7 @@ The ecosystem is governed by strict **computational design patterns** ensuring f
 | **Architectural Comparison** | Side-by-side study of **Virtual DOM**, **Fine-grained Reactivity**, and **Compile-time** strategies. |
 | **Central Portal Hub** | A modern **Homepage Overlay** that facilitates seamless navigation between all framework projects. |
 | **CI/CD Deployment** | Automated **GitHub Actions Pipeline** that builds and deploys 10 independent apps and a portal to GitHub Pages. |
-| **Scholarly Archival** | Comprehensive **Technical Specification**, **Metadata Standards**, and **Citation Manifests** included. |
-| **Modern UI/UX** | Premium interface design with consistent **Glassmorphism** and responsive layouts across all modules. |
+| **Modern UI/UX** | Modern interface design with consistent **Glassmorphism** and responsive layouts across all modules. |
 
 > [!NOTE]
 > ### Comparative Polish: The Harmony Bridge
