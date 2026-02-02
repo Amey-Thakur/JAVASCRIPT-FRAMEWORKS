@@ -1,0 +1,47 @@
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "name": "JAVASCRIPT-FRAMEWORKS-TODO-APPS",
+    "description": "A comprehensive collection of Todo applications built with 10 different JavaScript frameworks. This repository serves as a comparative benchmark and archival record of modern web framework implementation styles, syntax, and performance characteristics.",
+    "identifier": "JAVASCRIPT-FRAMEWORKS-TODO-APPS",
+    "license": "https://spdx.org/licenses/MIT.html",
+    "programmingLanguage": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Markdown"
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "givenName": "Amey",
+            "familyName": "Thakur",
+            "id": "https://orcid.org/0000-0001-5644-1575"
+        },
+        {
+            "@type": "Person",
+            "givenName": "Mega",
+            "familyName": "Satish",
+            "id": "https://orcid.org/0000-0002-1844-9557"
+        }
+    ],
+    "dateReleased": "2022-06-23",
+    "codeRepository": "https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS",
+    "developmentStatus": "complete",
+    "applicationCategory": "Education / Software Development",
+    "keywords": [
+        "JavaScript",
+        "Todo App",
+        "Framework Comparison",
+        "Alpine.js",
+        "Angular",
+        "React",
+        "Vue",
+        "Svelte",
+        "Lit",
+        "Mithril",
+        "Solid",
+        "Stencil",
+        "Vanilla JS"
+    ]
+}
