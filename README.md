@@ -49,7 +49,7 @@
 
 The project features a unique **Magic Sync** system: a Virtual Storage Bridge that patches the browser's storage engine to ensure seamless data persistence across all 10 framework implementations, from individual apps to the centralized portal.
 
-In addition to practical benchmarks, the repository serves as a **"Framework Encyclopedia"** ([View Wiki](docs/wiki/Home.md)). This scholarly resource, located in the `docs/wiki/` directory, provides a formal comparative analysis of each framework's architectural paradigm—from Virtual DOM reconciliation to Atomic Signals. It serves as a definitive reference for researchers and engineers analyzing the trade-offs between differing reactivity models.
+In addition to practical benchmarks, the repository serves as a **"Framework Encyclopedia"** ([View Wiki](docs/wiki/Home.md)). This scholarly resource, located in the `docs/wiki/` directory, provides a formal comparative analysis of each framework's architectural paradigm, from Virtual DOM reconciliation to Atomic Signals. It serves as a definitive reference for researchers and engineers analyzing the trade-offs between differing reactivity models.
 
 ### Framework Heuristics
 The ecosystem is governed by strict **computational design patterns** ensuring fidelity and comparative accuracy:
