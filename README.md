@@ -142,6 +142,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Central Portal Hub: Magic Sync Portal</b>
   <br>
   <i>Initial ecosystem entrance with optimized aesthetics and synchronized brand identity.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/)
   <br><br>
   <img src="screenshots/homepage.png" alt="Homepage Portal Hub" width="90%">
   <br><br><br>
@@ -149,6 +151,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Alpine.js Implementation: Rugged Minimal</b>
   <br>
   <i>Declarative task behavior orchestrated directly within the markup for maximum simplicity.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/)
   <br><br>
   <img src="screenshots/alpine.png" alt="Alpine Implementation" width="90%">
   <br><br><br>
@@ -156,6 +160,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Angular Implementation: Enterprise Tier</b>
   <br>
   <i>Robust, scalable task management engineered with Angular's comprehensive dependency injection.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/)
   <br><br>
   <img src="screenshots/angular.png" alt="Angular Implementation" width="90%">
   <br><br><br>
@@ -163,6 +169,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Lit Implementation: Web Components</b>
   <br>
   <i>Lightweight, standard-compliant task components built with Lit's high-speed rendering engine.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/)
   <br><br>
   <img src="screenshots/lit.png" alt="Lit Implementation" width="90%">
   <br><br><br>
@@ -170,6 +178,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Mithril Implementation: Tiny VDOM</b>
   <br>
   <i>Elegant and efficient task orchestration within a sub-10kb Virtual DOM framework.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/)
   <br><br>
   <img src="screenshots/mithril.png" alt="Mithril Implementation" width="90%">
   <br><br><br>
@@ -177,6 +187,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>React Implementation: Virtual DOM</b>
   <br>
   <i>High-performance task orchestration utilizing React 19 and modern state persistence.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/)
   <br><br>
   <img src="screenshots/react.png" alt="React Implementation" width="90%">
   <br><br><br>
@@ -184,6 +196,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Solid Implementation: Fine-grained Reactivity</b>
   <br>
   <i>Ultra-performant state management leveraging Solid's direct signals and fine-grained DOM updates.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/)
   <br><br>
   <img src="screenshots/solid.png" alt="Solid Implementation" width="90%">
   <br><br><br>
@@ -191,6 +205,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Stencil Implementation: Web Component Compiler</b>
   <br>
   <i>Framework-agnostic task components generated via Stencil's optimized build-time tool.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/)
   <br><br>
   <img src="screenshots/stencil.png" alt="Stencil Implementation" width="90%">
   <br><br><br>
@@ -198,6 +214,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Svelte Implementation: Compiled Efficiency</b>
   <br>
   <i>Zero-overhead task tracking achieved through Svelte's compile-time transformation strategy.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/)
   <br><br>
   <img src="screenshots/svelte.png" alt="Svelte Implementation" width="90%">
   <br><br><br>
@@ -205,6 +223,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Vanilla JS Implementation: Native Performance</b>
   <br>
   <i>Direct DOM manipulation and core JavaScript patterns serving as the architectural benchmark.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/)
   <br><br>
   <img src="screenshots/vanilla.png" alt="Vanilla JS Implementation" width="90%">
   <br><br><br>
@@ -212,6 +232,8 @@ The following implementation gallery showcases the visual consistency and high-f
   <b>Vue Implementation: Reactive Proxy</b>
   <br>
   <i>Progressive interaction model featuring Vue's intuitive reactivity and template system.</i>
+  <br>
+  [**Live Demo 🚀**](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/)
   <br><br>
   <img src="screenshots/vue.png" alt="Vue Implementation" width="90%">
 </div>
