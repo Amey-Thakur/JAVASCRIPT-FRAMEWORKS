@@ -146,54 +146,83 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 ## Quick Start
 
 ### 1. Prerequisites
-- **Node.js 20+**: Required for build and runtime execution. [Download Node.js](https://nodejs.org/)
-- **npm 10+**: Core package management system.
-- **Git**: For version control and cloning. [Download Git](https://git-scm.com/downloads)
+- **Node.js 20.x or 22.x**: Required for all framework build pipelines. [Download Node.js](https://nodejs.org/)
+- **npm 10+**: Standard package manager for dependency synchronization.
+- **Git**: For version control and repository cloning. [Download Git](https://git-scm.com/downloads)
 
 > [!WARNING]
-> **Persistence Asset Acquisition**
+> **Storage Interoperability**
 >
-> The applications utilize a unified LocalStorage bridge for cross-framework persistence. If running in "Incognito" or "Private" mode, the "Magic Sync" synchronization may be restricted, preventing the master task list from persisting across framework transitions.
+> The ecosystem utilizes a unified **Virtual Storage Bridge**. If running in "Incognito" or "Private" mode, the cross-framework **"Magic Sync"** may be restricted, preventing the master task list from persisting across framework transitions.
 
-### 2. Installation & Workflow
+---
 
-#### Step 1: Clone the Repository
-Open your terminal and clone the repository:
+### 2. Global Installation
+Open your terminal and clone the repository to your local environment:
 ```bash
 git clone https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS.git
 cd JAVASCRIPT-FRAMEWORKS-TODO-APPS
 ```
 
-#### Step 2: Framework Selection & Execution
-Select any of the 10 framework implementations from the **Source Code** directory. Each application follows a standardized technical workflow:
+---
 
-1.  **Navigate** to the specific app directory:
+### 3. Execution Protocols
+The repository is divided into two technical tiers. Follow the protocol corresponding to the framework implementation you wish to explore:
+
+#### Tier A: High-Performance Frameworks
+*Includes: **React, Vue, Svelte, Solid, Lit, Mithril, Alpine, Vanilla***
+
+1.  Navigate to the specific implementation:
     ```bash
-    cd "Source Code/[App Name]"
+    cd "Source Code/[Framework App Name]"
     ```
-2.  **Synchronize** the local environment:
+2.  Install dependencies and launch the dev server:
     ```bash
     npm install
-    ```
-3.  **Launch** the reactive development server:
-    ```bash
     npm run dev
     ```
 
-### 3. Framework-Specific Build Commands
+#### Tier B: Enterprise & Compiler-Based
+*Includes: **Angular, Stencil***
 
-| Implementation | Build Command | Output Directory |
-|----------------|---------------|------------------|
-| **Alpine** | Native Execution | Root Level |
-| **Angular** | `npm run build` | `dist/angular-todo/` |
-| **Lit** | `npm run build` | `dist/` |
-| **Mithril** | Native Execution | Root Level |
-| **React** | `npm run build` | `dist/` |
-| **Solid** | `npm run build` | `dist/` |
-| **Stencil** | `npm run build` | `www/` |
-| **Svelte** | `npm run build` | `dist/` |
-| **Vanilla** | Native Execution | Root Level |
-| **Vue** | `npm run build` | `dist/` |
+1.  Navigate to the implementation:
+    ```bash
+    cd "Source Code/[Framework App Name]"
+    ```
+2.  Install dependencies and launch the server:
+    ```bash
+    npm install
+    npm run start
+    ```
+
+---
+
+### 4. Interactive Portal (Central Hub)
+To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
+
+1.  Ensure you have built the apps or are running them as directed above.
+2.  Navigate to the **Homepage** directory:
+    ```bash
+    cd "Source Code/Homepage"
+    ```
+3.  Open `index.html` in your browser (utilizing a local server like **Live Server** for full functionality).
+
+---
+
+### 5. Benchmark Reference Table
+
+| Implementation | Type | Command | Port |
+|----------------|------|---------|------|
+| **React** | Virtual DOM | `npm run dev` | 5173 |
+| **Vue** | Reactive Proxy | `npm run dev` | 5173 |
+| **Svelte** | Compiled | `npm run dev` | 5173 |
+| **Solid** | Fine-grained | `npm run dev` | 5173 |
+| **Lit** | Web Components | `npm run dev` | 5173 |
+| **Angular** | Enterprise | `npm run start` | 3002 |
+| **Stencil** | Compiler | `npm run start` | 3007 |
+| **Alpine** | Rugged | `npm run dev` | 5173 |
+| **Mithril** | Tiny VDOM | `npm run dev` | 5173 |
+| **Vanilla** | Native | `npm run dev` | 5173 |
 
 ---
 
