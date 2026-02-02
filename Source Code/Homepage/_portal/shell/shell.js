@@ -26,8 +26,36 @@
     const prevApp = apps[(currentIndex - 1 + apps.length) % apps.length];
     const nextApp = apps[(currentIndex + 1) % apps.length];
 
+    // Wait for framework to mount and then inject
+    function initShell() {
+        // Mithril and others might clear the body on mount. 
+        // We wait a bit and then check if we need to re-inject or if we can inject now.
+        const inject = () => {
+            if (document.getElementById('gallery-shell-root')) return;
+            createUI();
+        };
+
+        // Initial check
+        if (document.readyState === 'complete') {
+            setTimeout(inject, 500); // Give Mithril/React time to mount
+        } else {
+            window.addEventListener('load', () => setTimeout(inject, 500));
+        }
+
+        // MutationObserver to ensure we stay there if the body is cleared again
+        const observer = new MutationObserver(() => {
+            if (!document.getElementById('gallery-shell-root')) {
+                inject();
+            }
+        });
+        observer.observe(document.body, { childList: true });
+    }
+
     // UI Injection
     function createUI() {
+        const root = document.createElement('div');
+        root.id = 'gallery-shell-root';
+
         // Overlay HTML
         const overlay = document.createElement('div');
         overlay.className = 'gallery-shell-overlay';
@@ -63,9 +91,10 @@
             </div>
         `;
 
-        document.body.appendChild(overlay);
-        document.body.appendChild(modalOverlay);
-        document.body.appendChild(modal);
+        document.body.appendChild(root);
+        root.appendChild(overlay);
+        root.appendChild(modalOverlay);
+        root.appendChild(modal);
 
         // Events
         const navigate = (app) => {
@@ -118,10 +147,5 @@
         document.head.appendChild(fa);
     }
 
-    // Wait for body to be ready
-    if (document.body) {
-        createUI();
-    } else {
-        document.addEventListener('DOMContentLoaded', createUI);
-    }
+    initShell();
 })();
