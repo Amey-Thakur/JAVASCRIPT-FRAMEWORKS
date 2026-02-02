@@ -216,18 +216,7 @@ To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
 
 ---
 
-### 5. Benchmark Reference Table
-
-| Implementation | Type | Command | Port |
-|----------------|------|---------|------|
-| **React** | Virtual DOM | `npm run dev` | 5173 |
-| **Vue** | Reactive Proxy | `npm run dev` | 5173 |
-| **Svelte** | Compiled | `npm run dev` | 5173 |
-| **Solid** | Fine-grained | `npm run dev` | 5173 |
-| **Lit** | Web Components | `npm run dev` | 5173 |
-| **Angular** | Enterprise | `npm run start` | 3002 |
-| **Stencil** | Compiler | `npm run start` | 3007 |
-| **Alpine** | Rugged | `npm run dev` | 5173 |
+<!-- USAGE GUIDELINES -->
 | **Mithril** | Tiny VDOM | `npm run dev` | 5173 |
 | **Vanilla** | Native | `npm run dev` | 5173 |
 
