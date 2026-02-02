@@ -11,10 +11,8 @@ export const config: Config = {
       type: 'dist-custom-elements',
     },
     {
-      type: 'docs-readme',
-    },
-    {
       type: 'www',
+      baseUrl: '/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil Todo App/',
       serviceWorker: null, // disable service workers
       copy: [
         { src: 'assets' }
@@ -26,6 +24,6 @@ export const config: Config = {
     openBrowser: false,
   },
   testing: {
-    browserHeadless: "new",
+    browserHeadless: true,
   },
 };
