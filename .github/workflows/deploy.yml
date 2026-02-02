@@ -1,0 +1,141 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Create Site Directory
+        run: mkdir _site
+
+      # Copy Portal Assets
+      - name: Setup Portal
+        run: |
+          cp index.html _site/
+          cp -r _portal _site/
+
+      # Build Alpine
+      - name: Build Alpine
+        run: |
+          cd "Alpine Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Alpine Todo App"
+          cp -r dist/* "../_site/Alpine Todo App/"
+
+      # Build Angular
+      - name: Build Angular
+        run: |
+          cd "Angular Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Angular Todo App"
+          cp -r dist/angular-todo-app/browser/* "../_site/Angular Todo App/"
+
+      # Build Lit
+      - name: Build Lit
+        run: |
+          cd "Lit Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Lit Todo App"
+          cp -r dist/* "../_site/Lit Todo App/"
+
+      # Build Mithril
+      - name: Build Mithril
+        run: |
+          cd "Mithril Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Mithril Todo App"
+          cp -r dist/* "../_site/Mithril Todo App/"
+
+      # Build React
+      - name: Build React
+        run: |
+          cd "React Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/React Todo App"
+          cp -r dist/* "../_site/React Todo App/"
+
+      # Build Solid
+      - name: Build Solid
+        run: |
+          cd "Solid Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Solid Todo App"
+          cp -r dist/* "../_site/Solid Todo App/"
+
+      # Build Stencil
+      - name: Build Stencil
+        run: |
+          cd "Stencil Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Stencil Todo App"
+          cp -r www/* "../_site/Stencil Todo App/"
+
+      # Build Svelte
+      - name: Build Svelte
+        run: |
+          cd "Svelte Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Svelte Todo App"
+          cp -r dist/* "../_site/Svelte Todo App/"
+
+      # Build Vanilla
+      - name: Build Vanilla
+        run: |
+          cd "Vanilla Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Vanilla Todo App"
+          cp -r dist/* "../_site/Vanilla Todo App/"
+
+      # Build Vue
+      - name: Build Vue
+        run: |
+          cd "Vue Todo App"
+          npm install
+          npm run build
+          mkdir -p "../_site/Vue Todo App"
+          cp -r dist/* "../_site/Vue Todo App/"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
