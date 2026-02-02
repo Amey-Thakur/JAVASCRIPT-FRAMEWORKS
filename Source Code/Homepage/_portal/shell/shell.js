@@ -13,11 +13,21 @@
         { id: 'vue', name: 'Vue', path: 'Vue Todo App', logo: 'vue.png', color: '#42b883', desc: 'The Progressive JavaScript Framework. Vue is designed to be incrementally adoptable, focusing on the view layer only, making it easy to pick up and integrate with other libraries or existing projects while also being capable of powering sophisticated SPAs.' }
     ];
 
-    // Identify Current App
-    const currentPath = window.location.pathname;
-    const currentIndex = apps.findIndex(app => currentPath.includes(encodeURIComponent(app.path)) || currentPath.includes(app.path));
-    if (currentIndex === -1) return;
-    const currentApp = apps[currentIndex];
+    // Identify Current App (Robust detection)
+    function getApp() {
+        const path = window.location.pathname;
+        const title = document.title.toLowerCase();
+        return apps.find(app =>
+            path.includes(encodeURIComponent(app.path)) ||
+            path.includes(app.path) ||
+            title.includes(app.name.toLowerCase().split('.')[0]) || // e.g. 'react' in 'React Todo App'
+            title.includes(app.id)
+        );
+    }
+    const currentApp = getApp();
+    if (!currentApp) return;
+
+    const currentIndex = apps.indexOf(currentApp);
 
     // State Sync Configuration
     const MASTER_KEY = 'universal-todo-master';
@@ -37,14 +47,14 @@
     // Data Normalization Utilities
     function normalizeToMaster(appId, data) {
         if (!Array.isArray(data)) return [];
-        if (appId === 'solid') {
-            return data.map((t, i) => ({ id: Date.now() + i, text: String(t), completed: false }));
-        }
-        return data.map(t => ({
-            id: t.id || Date.now() + Math.random(),
-            text: t.text || t.title || '',
-            completed: !!t.completed
-        }));
+        return data.map((t, i) => {
+            const isObj = t && typeof t === 'object';
+            return {
+                id: (isObj && (t.id || t.timestamp)) || Date.now() + i,
+                text: (isObj ? (t.text || t.title || t.content) : String(t)) || '',
+                completed: isObj ? !!t.completed : false
+            };
+        });
     }
 
     function normalizeFromMaster(appId, masterData) {
@@ -52,18 +62,21 @@
         return masterData;
     }
 
-    // Storage Intersection (Zero-Touch Sync)
-    const originalSetItem = localStorage.setItem;
-    localStorage.setItem = function (key, value) {
-        if (key === KEY_MAP[currentApp.id]) {
-            try {
-                const data = JSON.parse(value);
-                const normalized = normalizeToMaster(currentApp.id, data);
-                originalSetItem.call(localStorage, MASTER_KEY, JSON.stringify(normalized));
-            } catch (e) { }
-        }
-        originalSetItem.apply(this, arguments);
-    };
+    // Storage Intersection (Robust Sync)
+    const originalSetItem = Storage.prototype.setItem;
+    Object.defineProperty(Storage.prototype, 'setItem', {
+        value: function (key, value) {
+            if (key === KEY_MAP[currentApp.id]) {
+                try {
+                    const data = JSON.parse(value);
+                    const normalized = normalizeToMaster(currentApp.id, data);
+                    originalSetItem.call(this, MASTER_KEY, JSON.stringify(normalized));
+                } catch (e) { }
+            }
+            return originalSetItem.apply(this, arguments);
+        },
+        configurable: true
+    });
 
     // Initial Hydration
     (function hydrate() {
@@ -73,9 +86,7 @@
                 const parsed = JSON.parse(masterData);
                 const appSpecific = normalizeFromMaster(currentApp.id, parsed);
                 originalSetItem.call(localStorage, KEY_MAP[currentApp.id], JSON.stringify(appSpecific));
-            } catch (e) {
-                console.error("Sync Hydration Error", e);
-            }
+            } catch (e) { }
         }
     })();
 
