@@ -1,14 +1,12 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    base: './',
     server: {
         port: 3003,
         strictPort: true,
     },
     build: {
-        lib: {
-            entry: 'src/main.ts',
-            formats: ['es']
-        }
+        outDir: 'dist',
     }
 });
