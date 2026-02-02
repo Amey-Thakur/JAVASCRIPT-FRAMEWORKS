@@ -43,6 +43,41 @@
         </script>
     </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button logic
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 404 Fallback
+        const path = window.location.pathname;
+        const repoName = '/JAVASCRIPT-FRAMEWORKS-TODO-APPS/';
+
+        if (path.startsWith(repoName) && path !== repoName && path !== repoName + 'index.html') {
+            // This page is likely being viewed as a 404
+            // We can optionally log this or redirect if we had a router
+            console.log('404 Page Loaded for path:', path);
+        }
+    </script>
+
     <footer>
         <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank" class="author-link">Amey Thakur</a> & <a
                 href="https://github.com/msatmod" target="_blank" class="author-link">Mega Satish</a></p>
