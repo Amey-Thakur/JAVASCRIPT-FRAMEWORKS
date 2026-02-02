@@ -35,7 +35,7 @@
             <button class="shell-btn" id="shell-prev" title="Previous Framework (Left Arrow)">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <a href="../../" class="shell-btn" title="Back to Portal (H)">
+            <a href="../" class="shell-btn" title="Back to Portal (H)">
                 <i class="fas fa-home"></i>
             </a>
             <button class="shell-btn" id="shell-info" title="Framework Info (I)">
@@ -104,7 +104,7 @@
                     break;
                 case 'h':
                 case 'H':
-                    window.location.href = '../../';
+                    window.location.href = '../';
                     break;
             }
         });
