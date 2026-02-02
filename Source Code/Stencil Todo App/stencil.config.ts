@@ -12,7 +12,7 @@ export const config: Config = {
     },
     {
       type: 'www',
-      baseUrl: '/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil%20Todo%20App/',
+      baseUrl: '/',
       serviceWorker: null, // disable service workers
       copy: [
         { src: 'assets' }

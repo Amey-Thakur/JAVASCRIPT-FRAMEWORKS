@@ -141,6 +141,36 @@ JAVASCRIPT-FRAMEWORKS-TODO-APPS/
 
 ---
 
+<!-- RESULTS -->
+<a name="results"></a>
+## Results
+
+The following implementation gallery showcases the visual consistency and high-fidelity UI maintained across all 10 JavaScript frameworks. Every application utilizes the **"Magic Sync" Virtual Storage Bridge** to ensure real-time data persistence during framework transitions.
+
+````carousel
+![Alpine Todo App Implementation](screenshots/alpine.png)
+<!-- slide -->
+![Angular Todo App Implementation](screenshots/angular.png)
+<!-- slide -->
+![Lit Todo App Implementation](screenshots/lit.png)
+<!-- slide -->
+![Mithril Todo App Implementation](screenshots/mithril.png)
+<!-- slide -->
+![React Todo App Implementation](screenshots/react.png)
+<!-- slide -->
+![Solid Todo App Implementation](screenshots/solid.png)
+<!-- slide -->
+![Stencil Todo App Implementation](screenshots/stencil.png)
+<!-- slide -->
+![Svelte Todo App Implementation](screenshots/svelte.png)
+<!-- slide -->
+![Vanilla JS Todo App Implementation](screenshots/vanilla.png)
+<!-- slide -->
+![Vue Todo App Implementation](screenshots/vue.png)
+````
+
+---
+
 <!-- QUICK START -->
 <a name="quick-start"></a>
 ## Quick Start
