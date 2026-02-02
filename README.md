@@ -47,7 +47,7 @@
 
 **JavaScript Frameworks Todo Apps** is a multicentric interactive ecosystem engineered to benchmark productivity patterns across the modern web landscape. By implementing the same functional requirements across 10 different technology stacks, this repository provides a definitive study into component architecture, state management, and cross-framework interoperability.
 
-The project features a unique **Magic Sync** system—a Virtual Storage Bridge that patches the browser's storage engine to ensure seamless data persistence across all 10 framework implementations, from individual apps to the centralized portal.
+The project features a unique **Magic Sync** system: a Virtual Storage Bridge that patches the browser's storage engine to ensure seamless data persistence across all 10 framework implementations, from individual apps to the centralized portal.
 
 ### Framework Heuristics
 The ecosystem is governed by strict **computational design patterns** ensuring fidelity and comparative accuracy:
@@ -81,12 +81,11 @@ The ecosystem is governed by strict **computational design patterns** ensuring f
 > We have engineered a **Standardized Framework Wrapper** that integrates the "Magic Sync" overlay into every individual application. The visual language focuses on a "Unified Harmony" aesthetic, ensuring that the transition between frameworks is visually seamless while maintaining their independent functional strengths.
 
 ### Tech Stack
-- **Languages**: JavaScript, TypeScript
+- **Languages**: JavaScript, TypeScript, HTML, CSS
 - **Frameworks**: 10 (React, Angular, Vue, Svelte, Solid, Lit, Mithril, Alpine, Stencil, Vanilla)
 - **Persistence**: **Virtual Storage Bridge** (Custom Interceptor Architecture)
 - **Deployment**: GitHub Actions (Unified CI/CD Pipeline)
 - **Hosting**: GitHub Pages
-- **Documentation**: Markdown, Mermaid, codemeta.json, CITATION.cff
 
 ---
 
