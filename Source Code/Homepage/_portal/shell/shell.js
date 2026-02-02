@@ -130,7 +130,7 @@
         overlay.innerHTML = `
             <button class="shell-btn" id="shell-prev" title="Previous (Left Arrow)"><i class="fas fa-chevron-left"></i></button>
             <a href="../" class="shell-btn" title="Home (H)"><i class="fas fa-home"></i></a>
-            <button class="shell-btn" id="shell-info" title="Info (I)"><i class="fas fa-info"></i></button>
+            <button class="shell-btn" id="shell-info" title="Info (?)"><i class="fas fa-info"></i></button>
             <button class="shell-btn" id="shell-next" title="Next (Right Arrow)"><i class="fas fa-chevron-right"></i></button>
         `;
 
@@ -224,6 +224,11 @@
         modalOverlay.onclick = toggleModal;
         searchInput.oninput = (e) => renderResults(e.target.value);
 
+        const isTyping = () => {
+            const el = document.activeElement;
+            return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+        };
+
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
@@ -244,9 +249,11 @@
                 return;
             }
 
+            if (isTyping()) return;
+
             if (e.key === 'ArrowLeft') navigate(prevApp);
             else if (e.key === 'ArrowRight') navigate(nextApp);
-            else if (e.key.toLowerCase() === 'i') toggleModal();
+            else if (e.key === '?' || (e.key === '/' && e.shiftKey)) toggleModal();
             else if (e.key.toLowerCase() === 'h') window.location.href = '../';
         });
     }
