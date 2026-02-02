@@ -35,98 +35,100 @@ jobs:
       # Copy Portal Assets
       - name: Setup Portal
         run: |
-          cp index.html _site/
-          cp -r _portal _site/
+          cp "Source Code/index.html" _site/
+          cp "Source Code/404.html" _site/
+          cp "Source Code/.nojekyll" _site/
+          cp -r "Source Code/_portal" _site/
 
       # Build Alpine
       - name: Build Alpine
         run: |
-          cd "Alpine Todo App"
+          cd "Source Code/Alpine Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Alpine Todo App"
-          cp -r dist/* "../_site/Alpine Todo App/"
+          mkdir -p "../../_site/Alpine Todo App"
+          cp -r dist/* "../../_site/Alpine Todo App/"
 
       # Build Angular
       - name: Build Angular
         run: |
-          cd "Angular Todo App"
+          cd "Source Code/Angular Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Angular Todo App"
-          cp -r dist/angular-todo-app/browser/* "../_site/Angular Todo App/"
+          mkdir -p "../../_site/Angular Todo App"
+          cp -r dist/angular-todo-app/browser/* "../../_site/Angular Todo App/"
 
       # Build Lit
       - name: Build Lit
         run: |
-          cd "Lit Todo App"
+          cd "Source Code/Lit Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Lit Todo App"
-          cp -r dist/* "../_site/Lit Todo App/"
+          mkdir -p "../../_site/Lit Todo App"
+          cp -r dist/* "../../_site/Lit Todo App/"
 
       # Build Mithril
       - name: Build Mithril
         run: |
-          cd "Mithril Todo App"
+          cd "Source Code/Mithril Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Mithril Todo App"
-          cp -r dist/* "../_site/Mithril Todo App/"
+          mkdir -p "../../_site/Mithril Todo App"
+          cp -r dist/* "../../_site/Mithril Todo App/"
 
       # Build React
       - name: Build React
         run: |
-          cd "React Todo App"
+          cd "Source Code/React Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/React Todo App"
-          cp -r dist/* "../_site/React Todo App/"
+          mkdir -p "../../_site/React Todo App"
+          cp -r dist/* "../../_site/React Todo App/"
 
       # Build Solid
       - name: Build Solid
         run: |
-          cd "Solid Todo App"
+          cd "Source Code/Solid Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Solid Todo App"
-          cp -r dist/* "../_site/Solid Todo App/"
+          mkdir -p "../../_site/Solid Todo App"
+          cp -r dist/* "../../_site/Solid Todo App/"
 
       # Build Stencil
       - name: Build Stencil
         run: |
-          cd "Stencil Todo App"
+          cd "Source Code/Stencil Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Stencil Todo App"
-          cp -r www/* "../_site/Stencil Todo App/"
+          mkdir -p "../../_site/Stencil Todo App"
+          cp -r www/* "../../_site/Stencil Todo App/"
 
       # Build Svelte
       - name: Build Svelte
         run: |
-          cd "Svelte Todo App"
+          cd "Source Code/Svelte Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Svelte Todo App"
-          cp -r dist/* "../_site/Svelte Todo App/"
+          mkdir -p "../../_site/Svelte Todo App"
+          cp -r dist/* "../../_site/Svelte Todo App/"
 
       # Build Vanilla
       - name: Build Vanilla
         run: |
-          cd "Vanilla Todo App"
+          cd "Source Code/Vanilla Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Vanilla Todo App"
-          cp -r dist/* "../_site/Vanilla Todo App/"
+          mkdir -p "../../_site/Vanilla Todo App"
+          cp -r dist/* "../../_site/Vanilla Todo App/"
 
       # Build Vue
       - name: Build Vue
         run: |
-          cd "Vue Todo App"
+          cd "Source Code/Vue Todo App"
           npm install
           npm run build
-          mkdir -p "../_site/Vue Todo App"
-          cp -r dist/* "../_site/Vue Todo App/"
+          mkdir -p "../../_site/Vue Todo App"
+          cp -r dist/* "../../_site/Vue Todo App/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
