@@ -203,16 +203,16 @@ To browse the entire ecosystem through the unified **"Magic Sync" Portal**:
 
 | Implementation | Type | Command | Port | Live |
 |----------------|------|---------|------|------|
-| **Alpine** | Rugged | `npm run dev` | 3001 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/) |
-| **Angular** | Enterprise | `npm run start` | 3002 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/) |
-| **Lit** | Web Components | `npm run dev` | 3003 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/) |
-| **Mithril** | Tiny VDOM | `npm run dev` | 3004 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/) |
-| **React** | Virtual DOM | `npm run dev` | 3005 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/) |
-| **Solid** | Fine-grained | `npm run dev` | 3006 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/) |
-| **Stencil** | Compiler | `npm run start` | 3007 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil-Todo-App/) |
-| **Svelte** | Compiled | `npm run dev` | 3008 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/) |
-| **Vanilla** | Native | `npm run dev` | 3009 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/) |
-| **Vue** | Reactive Proxy | `npm run dev` | 3010 | [🚀 Live](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/) |
+| **Alpine** | Rugged | `npm run dev` | 3001 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Alpine%20Todo%20App/) |
+| **Angular** | Enterprise | `npm run start` | 3002 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Angular%20Todo%20App/) |
+| **Lit** | Web Components | `npm run dev` | 3003 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Lit%20Todo%20App/) |
+| **Mithril** | Tiny VDOM | `npm run dev` | 3004 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Mithril%20Todo%20App/) |
+| **React** | Virtual DOM | `npm run dev` | 3005 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/React%20Todo%20App/) |
+| **Solid** | Fine-grained | `npm run dev` | 3006 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Solid%20Todo%20App/) |
+| **Stencil** | Compiler | `npm run start` | 3007 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Stencil-Todo-App/) |
+| **Svelte** | Compiled | `npm run dev` | 3008 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Svelte%20Todo%20App/) |
+| **Vanilla** | Native | `npm run dev` | 3009 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vanilla%20Todo%20App/) |
+| **Vue** | Reactive Proxy | `npm run dev` | 3010 | [🚀](https://amey-thakur.github.io/JAVASCRIPT-FRAMEWORKS-TODO-APPS/Vue%20Todo%20App/) |
 
 ---
 <a name="usage-guidelines"></a>
