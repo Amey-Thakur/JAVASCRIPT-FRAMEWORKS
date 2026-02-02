@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | JS Frameworks</title>
+    <link rel="icon" type="image/png" href="_portal/favicon.png">
+    <!-- Note: Absolute path used for 404 to ensure it loads from subpaths if needed, though GitHub Pages 404 is at root -->
+    <link rel="stylesheet" href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/_portal/style.css">
+
+    <!-- Fallback for local testing or if repo name changes, use relative -->
+    <script>
+        // Simple fallback to handle local relative paths vs GitHub Pages absolute paths for CSS
+        if (document.styleSheets.length === 0 || document.styleSheets[0].cssRules.length === 0) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '_portal/style.css';
+            document.head.appendChild(link);
+
+            var favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) favicon.href = '_portal/favicon.ico';
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! The framework you're looking for hasn't been implemented yet.</p>
+        <a href="/JAVASCRIPT-FRAMEWORKS-TODO-APPS/" class="home-btn">Return to Ecosystem</a>
+
+        <!-- Local fallback for home button -->
+        <script>
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                document.querySelector('.home-btn').href = './index.html';
+            }
+        </script>
+    </div>
+
+    <footer>
+        <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank" class="author-link">Amey Thakur</a> & <a
+                href="https://github.com/msatmod" target="_blank" class="author-link">Mega Satish</a></p>
+        <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS"
+                target="_blank" class="repo-link">GitHub Repo</a></p>
+    </footer>
+
+</body>
+
+</html>
