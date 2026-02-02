@@ -1,0 +1,17 @@
+{
+  "name": "stencil-todo-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "stencil build --dev --watch --serve --port 3007",
+    "build": "stencil build",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch"
+  },
+  "dependencies": {
+    "@stencil/core": "4.41.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.0"
+  }
+}

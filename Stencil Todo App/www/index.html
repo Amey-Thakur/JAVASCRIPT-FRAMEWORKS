@@ -1,0 +1,13 @@
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Todo App</title> <link rel="icon" href="/assets/favicon.ico"> <style>body {
+      background-color: #f8fafc;
+      margin: 0;
+    }</style> <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&amp;display=swap" rel="stylesheet"> <script type="module" src="/build/stencil-todo-app.esm.js" data-stencil></script> <script nomodule="" src="/build/stencil-todo-app.js" data-stencil></script> </head> <body> <app-root></app-root> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+    if (registration) {
+      registration.unregister().then(function() { location.reload(true) });
+    }
+  });
+}
+</script></body></html>

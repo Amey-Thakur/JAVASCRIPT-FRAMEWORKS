@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpine.js Todo App</title>
+  <link rel="icon" href="https://alpinejs.dev/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app-container" x-data="todoApp">
+    <h1>Alpine To-Do App</h1>
+
+    <form class="input-group" @submit.prevent="addTodo">
+      <input type="text" x-model="newTodo" placeholder="Add a new task..." />
+      <button type="submit" class="btn">Add</button>
+    </form>
+
+    <div class="filters">
+      <button @click="filter = 'all'" :class="{'filter-btn': true, 'active': filter === 'all'}">All</button>
+      <button @click="filter = 'active'" :class="{'filter-btn': true, 'active': filter === 'active'}">Active</button>
+      <button @click="filter = 'completed'"
+        :class="{'filter-btn': true, 'active': filter === 'completed'}">Completed</button>
+    </div>
+
+    <ul class="todo-list">
+      <template x-for="todo in filteredTodos" :key="todo.id">
+        <li class="todo-item">
+          <div class="checkbox" :class="{ 'checked': todo.completed }" @click="toggleTodo(todo.id)">
+            <template x-if="todo.completed">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 3L4.5 8.5L2 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </template>
+          </div>
+          <span class="todo-text" :class="{ 'coming-done': todo.completed }" x-text="todo.text"></span>
+          <button class="delete-btn" @click="deleteTodo(todo.id)">×</button>
+        </li>
+      </template>
+    </ul>
+
+    <div style="margin-top: 1rem; text-align: center; color: var(--text-light); font-size: 0.875rem;">
+      <span x-text="todos.filter(t => !t.completed).length"></span> items left
+      <template x-if="todos.some(t => t.completed)">
+        <button @click="clearCompleted" class="filter-btn" style="margin-left: 1rem; color: var(--danger)">Clear
+          Completed</button>
+      </template>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <footer class="app-footer">
+    <p>Created by <a href="https://github.com/Amey-Thakur" target="_blank" class="author-link">Amey Thakur</a> & <a
+        href="https://github.com/msatmod" target="_blank" class="author-link">Mega Satish</a></p>
+    <p>Released: June 23, 2022 • <a href="https://github.com/Amey-Thakur/JAVASCRIPT-FRAMEWORKS-TODO-APPS"
+        target="_blank" class="repo-link">GitHub Repo</a></p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
