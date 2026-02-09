@@ -31,5 +31,47 @@
 *.woff binary
 *.woff2 binary
 
-# Academic/Scholarly classification
+# LINGUIST OPTIMIZATION - JS FRAMEWORKS DOMINANCE & CLICKABILITY
+# Ensure primary logic logic is the only thing in the bar
+*.js linguist-detectable=true
+*.jsx linguist-detectable=true
+*.ts linguist-detectable=true
+*.tsx linguist-detectable=true
+*.vue linguist-detectable=true
+*.svelte linguist-detectable=true
+*.py linguist-detectable=true
+
+# Hide ALL CSS, HTML, and styling/config files from the bar
+"**/*.css" linguist-generated
+"**/*.css" -linguist-detectable
+"**/*.scss" linguist-generated
+"**/*.scss" -linguist-detectable
+"**/*.html" linguist-generated
+"**/*.html" -linguist-detectable
+"**/*.svg" linguist-generated
+"**/*.svg" -linguist-detectable
+"**/*.json" linguist-generated
+"**/*.json" -linguist-detectable
+
+# Hide HUGE non-code assets and build folders (Recursive)
+"**/Mega/**" linguist-generated
+"**/Mega/**" -linguist-detectable
+"**/screenshots/**" linguist-generated
+"**/screenshots/**" -linguist-detectable
+"**/docs/**" linguist-documentation
+"**/docs/**" -linguist-detectable
+
+# Recursive safety for build/node artifacts
+"**/node_modules/**" linguist-generated
+"**/node_modules/**" -linguist-detectable
+"**/dist/**" linguist-generated
+"**/dist/**" -linguist-detectable
+"**/build/**" linguist-generated
+"**/build/**" -linguist-detectable
+"**/public/**" linguist-generated
+"**/public/**" -linguist-detectable
+
+# Metadata Handle
 *.md linguist-documentation
+*.cff linguist-documentation
+codemeta.json linguist-documentation
