@@ -226,6 +226,7 @@
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     overflow: hidden;
+    font-family: 'Play', sans-serif;
 }
 
 .shell-command-palette.active {
@@ -253,7 +254,7 @@
     border: none;
     outline: none;
     font-size: 18px;
-    font-family: inherit;
+    font-family: 'Play', sans-serif;
     color: #1a1a1b;
 }
 
